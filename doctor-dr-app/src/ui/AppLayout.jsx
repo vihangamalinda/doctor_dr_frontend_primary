@@ -1,4 +1,4 @@
-// import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
 import Submissions from '../pages/Submissions';
 import Header from './Header';
@@ -33,7 +33,7 @@ function AppLayout() {
       <Sidebar />
       <Main>
         <Container>
-          {/* <Outlet /> */}
+          <Outlet />
           {/* After configuring router */}
           {/* <Dashboard/> */}
           {/* <Submissions/> */}
