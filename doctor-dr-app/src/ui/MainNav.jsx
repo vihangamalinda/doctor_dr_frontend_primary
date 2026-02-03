@@ -88,7 +88,7 @@ function MainNav() {
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/user">
+          <StyledNavLink to="/request-helper">
             <HiMiniChatBubbleBottomCenterText /> <span>Helper</span>
           </StyledNavLink>
         </li>
