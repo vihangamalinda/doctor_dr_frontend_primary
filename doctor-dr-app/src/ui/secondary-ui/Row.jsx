@@ -16,11 +16,19 @@ const Row = styled.div`
       flex-direction: column;
       gap: 1.6rem;
     `}
-    
+
   ${(props)=>
     props.type === 'horizontal-start' &&
      css`
       justify-content: flex-start;
+      align-items: center;
+      gap: 5px;
+    `}
+
+     ${(props)=>
+    props.type === 'horizontal-center' &&
+     css`
+      justify-content: center;
       align-items: center;
       gap: 5px;
     `}
