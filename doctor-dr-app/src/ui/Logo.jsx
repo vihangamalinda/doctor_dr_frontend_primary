@@ -14,7 +14,7 @@ const Img = styled.img`
 function Logo() {
   return (
     <StyledLogo>
-      <Img src="./assets/react.svg" alt="Logo" />
+      <Img src="src\assets\logo.jpg" alt="Logo" />
     </StyledLogo>
   );
 }
