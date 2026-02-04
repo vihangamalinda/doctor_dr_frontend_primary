@@ -57,7 +57,7 @@ function SubmissionTable(){
           <div></div>
         </TableHeader>
         {submissionList.map((submissions) => (
-          <SubmissionRow submissionData={submissions} key={submissions.id} />
+          <SubmissionRow submissionData={submissions} key={submissions.submissionId} />
         ))}
       </Table>
     );
