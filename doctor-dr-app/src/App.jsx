@@ -14,16 +14,26 @@ import User from './pages/User';
 import Request from './pages/Request';
 import Login from "./pages/Login";
 import PageNotFound from './pages/PageNotFound';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 
-
+const queryClient =new QueryClient({
+  defaultOptions: {
+    queries: {
+      // staleTime:60 * 1000,
+      staleTime: 0,
+    },
+  },
+});
 
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+      <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false}/>
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
@@ -44,7 +54,7 @@ function App() {
      
 
       </BrowserRouter>
-    </>
+      </QueryClientProvider>
   );
 }
 
