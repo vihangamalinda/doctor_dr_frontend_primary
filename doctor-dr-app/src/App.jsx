@@ -1,35 +1,51 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+// import './App.css'
+import GlobalStyles from './styles/GlobalStyle';
+import AppLayout from './ui/AppLayout';
+import Submissions from './pages/Submissions';
+import DashBoard from './pages/DashBoard';
+import Diagnosis from './pages/Diagnosis';
+import ReportIssue from './pages/ReportIssue';
+import Settings from './pages/Settings';
+import User from './pages/User';
+import Request from './pages/Request';
+import Login from "./pages/Login";
+import PageNotFound from './pages/PageNotFound';
+
+
+
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <GlobalStyles />
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route index element={<Navigate replace to="dashboard" />} />
+            <Route path="dashboard" element={<DashBoard />} />
+            <Route path="submissions" element={<Submissions />} />
+            <Route path="diagnosis" element={<Diagnosis />} />
+            <Route path="report-issue" element={<ReportIssue />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="user" element={<User />} />
+            <Route path="request-helper" element={<Request />} />
+          </Route>
+             <Route path="login" element={<Login />} />
+        <Route path="*" element={<PageNotFound />} />
+        </Routes>
+
+     
+
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
 export default App
