@@ -1,14 +1,13 @@
 import { useForm } from 'react-hook-form';
 import Form from "../../ui/secondary-ui/Form";
-import Label from '../../ui/secondary-ui/Label';
 import Input from '../../ui/secondary-ui/Input';
-import FormRow from '../../ui/secondary-ui/FormRow';
 import Textarea from '../../ui/secondary-ui/TextArea';
 import Button from '../../ui/secondary-ui/Button';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import {createRequestHelp} from "../../services/apis/apiRequestHelp.js"
 import styled from 'styled-components';
+import CustomFormRow from '../../ui/secondary-ui/CustomFormRow.jsx';
 
 const createLocalDateTime =()=>{
   const now = new Date();
@@ -65,18 +64,16 @@ function CreateRquest(){
 
     return (
         <Form onSubmit={handleSubmit(onSubmit,onError)}>
-            <FormRow>
-                <Label htmlFor='title'>Purpose of the request</Label>
+            <CustomFormRow label="Purpose of the request" error={errors?.title?.message} >
                 <Input  type="text" id="title" {...register("title", {required:"Title is required"})} />
-                {errors?.title?.message && <Error>{errors.title.message}</Error>}
-            </FormRow>
-              <FormRow>
-                <Label htmlFor='description'>Explain the situation</Label>
+            </CustomFormRow>
+
+             <CustomFormRow label="Explain the situation" error={errors?.description?.message} >
                 <Textarea  type="text" id="description" {...register("description",{required:"Description is required"})} />
-            </FormRow>
-            <FormRow>
+             </CustomFormRow>
+            <CustomFormRow>
                 <Button variation="primary" size="large" type="submit">Submit</Button>
-            </FormRow>
+            </CustomFormRow>
 
         </Form>
     )
