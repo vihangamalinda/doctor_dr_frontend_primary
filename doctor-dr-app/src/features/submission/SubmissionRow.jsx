@@ -42,7 +42,7 @@ const deleteBtId = (id)=> console.log("submission id deleting darft."+id);
 const diseaseFormatter =(hasDisease) => hasDisease?"Yes":"No";
 
 function SubmissionRow({submissionData}){
-    const {submissionId,patientReferenceId,createdDate,hasDisease,diseaseStage} = submissionData;
+    const {submissionId,patientReferenceId,createdDateTime,hasDisease,diseaseStage} = submissionData;
     const {name} =diseaseStage;
     const isDeleting =false;
     const diseaseContain =diseaseFormatter(hasDisease);
@@ -50,7 +50,7 @@ function SubmissionRow({submissionData}){
     return (
       <TableRow>
         <PatientReferenceId>{patientReferenceId}</PatientReferenceId>
-        <div>{createdDate}</div>
+        <div>{createdDateTime}</div>
         <HasDisease>{diseaseContain}</HasDisease>
         <DiseaseStageName>{name}</DiseaseStageName>
         <button onClick={() => deleteBtId(submissionId)} disabled={isDeleting}>
