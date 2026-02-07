@@ -47,6 +47,19 @@ const deleteData = async (url) => {
   }
 };
 
+const createMultiPartFormData = async ({url,obj})=>{
+    try{
+      const response =await fetch(url,{
+        method:'POST',
+        body:obj,
+      });
+      validateResponse(response);
+    }catch(error){
+      console.log(error);
+    }
+
+}
+
 const createData = async ({ url, obj }) => {
   try {
     const response = await fetch(url, {
@@ -63,5 +76,5 @@ const createData = async ({ url, obj }) => {
   }
 };
 
-export { getData, updateData, deleteData, createData };
+export { getData, updateData, deleteData, createData ,createMultiPartFormData};
 
