@@ -96,11 +96,17 @@ function PerformSubmission() {
     }
   }, [imageFiles]);
 
+  function onError (err){
+    console.log(err);
+  }
+
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit,onError)}>
       <FormRow>
         <Label htmlFor="name">Patient Reference id</Label>
-        <Input type="text" id="name" {...register("patientReferenceId")} />
+        <Input type="text" id="name" {...register("patientReferenceId",{
+          required:"Patient refernce Id is required"
+        })} />
       </FormRow>
       <FormRow>
         <div
