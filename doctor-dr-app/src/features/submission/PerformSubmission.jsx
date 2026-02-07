@@ -7,11 +7,10 @@ import FormRow from '../../ui/secondary-ui/FormRow';
 import Input from '../../ui/secondary-ui/Input';
 import Label from '../../ui/secondary-ui/Label';
 import Button from '../../ui/secondary-ui/Button';
-// const Label = styled.label`
-//   font-weight: 500;
-// `;
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import {createSubmission} from "../../services/apis/apiSubmission.js"
+import toast from 'react-hot-toast';
 
-//
 const FileInput = styled.input`
   font-size: 1.4rem;
   border-radius: var(--border-radius-sm);
@@ -35,48 +34,55 @@ const FileInput = styled.input`
     }
   }
 `;
+const createLocalDateTime =()=>{
+  const now = new Date();
 
-//
-// function uploadImage(){
-//   const fileInputRef = useRef(null);
+  const localDateTime = now
+  .toISOString()
+  .slice(0, 19);
+  return localDateTime;
+}
 
-//   const handleFiles = (files) => {
-//     console.log(files[0]);
-//   };
-//   return (
-//     <div
-//       onClick={() => fileInputRef.current.click()}
-//       onDragOver={(e) => e.preventDefault()}
-//       onDrop={(e) => {
-//         e.preventDefault();
-//         handleFiles(e.dataTransfer.files);
-//       }}
-//       style={{
-//         border: "2px dashed #aaa",
-//         padding: "30px",
-//         cursor: "pointer",
-//       }}
-//     >
-//       Click or drag image here
+const createSubmmisionData = (patientReferenceId, image, userProfileId) => {
 
-//       <input
-//         ref={fileInputRef}
-//         type="file"
-//         accept="image/*"
-//         hidden
-//         onChange={(e) => handleFiles(e.target.files)}
-//       />
-//     </div>
-//   )
-// }
+  const formData = new FormData();
+
+  formData.append("patientReferenceId", patientReferenceId);
+  formData.append("createdDateTime", createLocalDateTime());
+  formData.append("multipartFileImage", image[0]);
+  formData.append("userProfile.id", userProfileId);
+
+  return formData;
+};
+
+
 
 function PerformSubmission() {
+  const queryClient =useQueryClient();
+  const {mutate,isLoading} = useMutation({
+    mutationFn:createSubmission,
+    onSuccess:()=>{
+      toast.success('created Submission');
+      queryClient.invalidateQueries({queryKey:["submissions"]})
+    },
+    onError:(err)=>{
+      toast.error(err);
+    },
+    
+  });
+
   const { register, watch, handleSubmit } = useForm();
 
   const [preview, setPreview] = useState(null);
   const fileInputRef = useRef(null);
   const imageFiles = watch("image"); // FileList
+  
   function onSubmit(data) {
+    const userId =6;
+    const {patientReferenceId, image}=data;
+    const submission =createSubmmisionData(patientReferenceId,image,userId);
+    console.log(submission);
+    mutate(submission);
     console.log("form-data", data);
   }
 
