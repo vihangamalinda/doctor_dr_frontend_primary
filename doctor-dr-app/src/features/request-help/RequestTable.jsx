@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import RequestCard from './RequestCard';
 import Row from '../../ui/secondary-ui/Row';
-
+import { useQuery } from '@tanstack/react-query';
+import {getRequestedHelpsByCreatedUserProfileId} from "../../services/apis/apiRequestHelp.js";
+import Spinner from '../../ui/secondary-ui/Spinner.jsx';
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
 
@@ -51,10 +53,20 @@ const dummyRequest = [
     createRequest(8,"title 1", lengthyMessage ,lengthyMessage,dummyContactInfor[2]),
     createRequest(11,"title 1", lengthyMessage ,"ad3413",dummyContactInfor[3]),
 ]
+
+const createdUserProfileId = 6;
 function RequestTable(){
+    const {data,isLoading,error} = useQuery({
+        queryKey:["requested-helps"],
+        queryFn: ()=>getRequestedHelpsByCreatedUserProfileId(createdUserProfileId),
+    });
+    if(isLoading){
+        return <Spinner/>
+    }
+
     return (
         <Row type="vertical">
-        {dummyRequest.map(request=> <RequestCard request={request} key={request.id}/>)}
+        {data.map(request=> <RequestCard request={request} key={request.id}/>)}
         </Row>
     )
 }
