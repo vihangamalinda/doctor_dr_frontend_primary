@@ -1,6 +1,9 @@
 import UserProfileInformation from "../features/user-profile/UserProfileInformation";
 import HospitalInformation from "../features/hospital/HospitalInformation";
 import Heading from "../ui/secondary-ui/Heading";
+import { useQuery } from "@tanstack/react-query";
+import {getUserProfileById} from "../services/apis/apiUserProfile.js"
+import Spinner from "../ui/secondary-ui/Spinner.jsx";
 
 const user ={
     id:2,
@@ -26,14 +29,21 @@ const hospital ={
 }
 
 function User(){
-    return (
-      <>
-        <Heading as="h1"> User details</Heading>
-        <UserProfileInformation user={user} />
-        <p> Hospital information </p>
-        <HospitalInformation hospital={hospital}/>
-      </>
-    );
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["user-profile"],
+    queryFn: () => getUserProfileById(6),
+  });
+ 
+  if (isLoading) return <Spinner />;
+  console.log(data.hospital);
+  return (
+    <>
+      <Heading as="h1"> User details</Heading>
+      <UserProfileInformation user={data} />
+      <p> Hospital information </p>
+      <HospitalInformation hospital={data.hospital} />
+    </>
+  );
 }
 
 export default User;
