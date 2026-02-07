@@ -1,5 +1,5 @@
 import { SUBMISSION_API_URLs } from "../apiConfigs.js";
-import { getData, updateData, deleteData, createData } from "../apiHelper.js";
+import { getData, updateData, deleteData, createData,createMultiPartFormData } from "../apiHelper.js";
 
 const getAllSubmissions = async () => {
   return await getData(SUBMISSION_API_URLs.SUBMISSION_PERFORM_GET_ALL);
@@ -14,7 +14,7 @@ const createSubmission = async (submissionObj) => {
     obj: submissionObj,
     url: SUBMISSION_API_URLs.SUBMISSION_PERFORM_CREATE,
   };
-  return await createData(data);
+  return await createMultiPartFormData(data);
 };
 
 const deleteSubmissionById = async (id) => {
