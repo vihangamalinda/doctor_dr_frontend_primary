@@ -5,12 +5,50 @@ import Input from '../../ui/secondary-ui/Input';
 import FormRow from '../../ui/secondary-ui/FormRow';
 import Textarea from '../../ui/secondary-ui/TextArea';
 import Button from '../../ui/secondary-ui/Button';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
+import {createRequestHelp} from "../../services/apis/apiRequestHelp.js"
 
+const createLocalDateTime =()=>{
+  const now = new Date();
+
+  const localDateTime = now
+  .toISOString()
+  .slice(0, 19);
+  return localDateTime;
+}
+
+const createRequestedHelpData =(data,createdUserProfileId)=>{
+    const {title,description} =data;
+
+    return {
+        title,
+        description,
+        createdDateTime:createLocalDateTime(),
+        createdByUserProfile:{
+            id:createdUserProfileId
+        },
+    }
+}
 function CreateRquest(){
+    const queryClient =useQueryClient();
+    const {mutate,isLoading} =useMutation({
+        mutationFn:createRequestHelp,
+        onSuccess:()=>{
+            toast.success("created the request");
+            queryClient.invalidateQueries({queryKey:["requested-helps"]})
+        },
+        onError:(error)=>{
+            toast.error(error);
+        }
+    })
     const { register, handleSubmit } = useForm();
 
     function onSubmit(data){
+        const createdUserProfileId =6;
+        const requestedHelpData=createRequestedHelpData(data,createdUserProfileId);
         console.log("data",data);
+        mutate(requestedHelpData);
     }
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
