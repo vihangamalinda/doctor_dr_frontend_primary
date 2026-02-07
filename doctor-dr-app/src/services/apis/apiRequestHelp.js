@@ -23,10 +23,18 @@ const deleteRequestHelpById = async (id) => {
     REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_DELETE_BY_ID(id),
   );
 };
-const getRequestHelpByUserProfileId = async (id) => {
+
+// const getRequestHelpByUserProfileId = async (id) => {
+//   return await getData(
+//     REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_USER_PROFILE_BY_ID(id),
+//   );
+
+// };
+
+const getRequestedHelpsByCreatedUserProfileId =async(id)=>{
   return await getData(
-    REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_USER_PROFILE_BY_ID(id),
-  );
+    REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_CREATED_BY_USER_PROFILE_ID(id),
+  )
 };
 
 export {
@@ -34,5 +42,5 @@ export {
   getRequestHelpById,
   createRequestHelp,
   deleteRequestHelpById,
-  getRequestHelpByUserProfileId,
+  getRequestedHelpsByCreatedUserProfileId,
 };
