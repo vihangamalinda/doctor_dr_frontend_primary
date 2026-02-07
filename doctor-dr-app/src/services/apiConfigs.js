@@ -6,8 +6,8 @@ const SUBMISSION = BASE_URL + `/submission`;
 const USER_PROFILE = BASE_URL + `/user-profile`;
 const STATUS = BASE_URL + `/status`;
 const DISEASE_STAGE = BASE_URL + `/disease-stage`;
-const REPORT_ISSUE = BASE_URL + `/report-issue`;
-const REQUEST_HELP = BASE_URL + `/request-help`;
+const REPORT_ISSUE = BASE_URL + `/reported-issue`;
+const REQUEST_HELP = BASE_URL + `/requested-helper`;
 
 const PERFORM_CREATE = `/create`;
 const PERFORM_GET_ALL = `/all`;
@@ -16,6 +16,7 @@ const PERFORM_GET_BY_ID = (id) => `/id/${id}`;
 // const PERFORM_UPDATE_BY_ID=(id)=>"";
 const PERFORM_DISEASE_STAGE_BY_ID = (id) => `/disease-stage/${id}`;
 const PERFORM_USER_PROFILE_BY_ID = (id) => `/user-profile/${id}`;
+const PERFORM_CREATED_BY_USER_PROFILE_ID =(id)=>`/created-user-profile/${id}`
 
 /*
     Report-issue APIs
@@ -40,6 +41,7 @@ const REQUEST_HELP_PERFORM_GET_BY_ID = (id) =>
   REQUEST_HELP + PERFORM_GET_BY_ID(id);
 const REQUEST_HELP_PERFORM_USER_PROFILE_BY_ID = (id) =>
   REQUEST_HELP + PERFORM_USER_PROFILE_BY_ID(id);
+const REQUEST_HELP_PERFORM_CREATED_BY_USER_PROFILE_ID=(id)=> REQUEST_HELP+PERFORM_CREATED_BY_USER_PROFILE_ID(id);
 
 /*
     Submission APIs
@@ -158,6 +160,7 @@ const REQUEST_HELP_API_URLs = {
   REQUEST_HELP_PERFORM_DELETE_BY_ID,
   REQUEST_HELP_PERFORM_GET_BY_ID,
   REQUEST_HELP_PERFORM_USER_PROFILE_BY_ID,
+  REQUEST_HELP_PERFORM_CREATED_BY_USER_PROFILE_ID
 };
 
 export {
