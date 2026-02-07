@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import SubmissionRow from './SubmissionRow';
+import { useQuery } from '@tanstack/react-query';
+import {getAllSubmissionsByUserProfileId} from "../../services/apis/apiSubmission.js";
+import Spinner from '../../ui/secondary-ui/Spinner.jsx';
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -44,8 +47,15 @@ const submissionList =[
 ]
 
 console.log(submissionList);
+const userProfileId=6;
 
 function SubmissionTable(){
+  const {data,isLoading,error} = useQuery({
+    queryKey:["submissions"],
+    queryFn:()=>getAllSubmissionsByUserProfileId(userProfileId)
+  });
+    if(isLoading) return <Spinner/>
+
     return (
       <Table>
         <TableHeader>
@@ -56,8 +66,9 @@ function SubmissionTable(){
           <div>Discount</div>
           <div></div>
         </TableHeader>
-        {submissionList.map((submissions) => (
-          <SubmissionRow submissionData={submissions} key={submissions.submissionId} />
+
+        {data.map((submission) => (
+          <SubmissionRow submissionData={submission} key={submission.submissionId} />
         ))}
       </Table>
     );
