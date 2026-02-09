@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import RequestCard from './RequestCard';
 import Row from '../../ui/secondary-ui/Row';
-import { useQuery } from '@tanstack/react-query';
-import {getRequestedHelpsByCreatedUserProfileId} from "../../services/apis/apiRequestHelp.js";
 import Spinner from '../../ui/secondary-ui/Spinner.jsx';
 import { useRequestedHelpsByCreatedUserProfileId } from './hooks/useRequestedHelpsByCreatedUserProfileId.js';
 const Table = styled.div`
@@ -32,7 +30,7 @@ const TableHeader = styled.header`
 const createdUserProfileId = 6;
 function RequestTable(){
     const {requestedHelpsByCreatedProfileId,isRequestedHelpsLoading,error} = useRequestedHelpsByCreatedUserProfileId(createdUserProfileId);
-    console.log(requestedHelpsByCreatedProfileId);
+
     if(isRequestedHelpsLoading){
         return <Spinner/>
     }
