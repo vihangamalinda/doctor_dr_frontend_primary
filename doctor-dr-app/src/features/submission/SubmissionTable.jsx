@@ -27,25 +27,6 @@ const TableHeader = styled.header`
   padding: 1.6rem 2.4rem;
 `;
 
-const createSubmissions =(submissionId,patientReferenceId,createdDate,hasDisease,diseaseStage)=>{
-   return {
-        submissionId,
-        patientReferenceId,
-        createdDate,
-        hasDisease,
-        
-        diseaseStage,
-    }
-}
-const submissionList =[
-    createSubmissions(1,"4","2019-18-07",true,{name:"stage_2"}),
-    createSubmissions(2,"3","2019-18-07",true,{name:"stage_2"}),
-    createSubmissions(4,"5","2019-18-07",true,{name:"stage_2"}),
-    createSubmissions(5,"6","2019-18-07",true,{name:"stage_2"}),
-    createSubmissions(6,"7","2019-18-07",true,{name:"stage_2"}),
-]
-
-console.log(submissionList);
 const userProfileId=6;
 
 function SubmissionTable(){
