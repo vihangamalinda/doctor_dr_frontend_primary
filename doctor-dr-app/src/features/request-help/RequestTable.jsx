@@ -4,6 +4,7 @@ import Row from '../../ui/secondary-ui/Row';
 import { useQuery } from '@tanstack/react-query';
 import {getRequestedHelpsByCreatedUserProfileId} from "../../services/apis/apiRequestHelp.js";
 import Spinner from '../../ui/secondary-ui/Spinner.jsx';
+import { useRequestedHelpsByCreatedUserProfileId } from './hooks/useRequestedHelpsByCreatedUserProfileId.js';
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
 
@@ -28,45 +29,43 @@ const TableHeader = styled.header`
   padding: 1.6rem 2.4rem;
 `;
 
-function createRequest(id,title,description,feedback,contactInfor){
-    return {
-        id,
-        title,
-        description,
-        feedback,
-        contactInfor
-    }
-}
-const dummyContactInfor = [
-  { name: "adsd", contactNumber: "help@gmail.com" },
-  { name: "adsdhfs", contactNumber: "help1@gmail.com" },
-  { name: "gheadsd", contactNumber: "help2@gmail.com" },
-  { name: "bnmadsd", contactNumber: "help3@gmail.com" },
-];
-const lengthyMessage = `agasddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxcxcxcffffffffffffffaaaaaaaaaaaasdsadww eewdads  asdasdasdasdasdasdasddadsdavxxc
- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-`
+// function createRequest(id,title,description,feedback,contactInfor){
+//     return {
+//         id,
+//         title,
+//         description,
+//         feedback,
+//         contactInfor
+//     }
+// }
+// const dummyContactInfor = [
+//   { name: "adsd", contactNumber: "help@gmail.com" },
+//   { name: "adsdhfs", contactNumber: "help1@gmail.com" },
+//   { name: "gheadsd", contactNumber: "help2@gmail.com" },
+//   { name: "bnmadsd", contactNumber: "help3@gmail.com" },
+// ];
+// const lengthyMessage = `agasddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxcxcxcffffffffffffffaaaaaaaaaaaasdsadww eewdads  asdasdasdasdasdasdasddadsdavxxc
+//  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+// `
 
-const dummyRequest = [
-    createRequest(2,"title 1", lengthyMessage ,lengthyMessage,dummyContactInfor[0]),
-    createRequest(5,"title 1", lengthyMessage ,lengthyMessage,dummyContactInfor[1]),
-    createRequest(8,"title 1", lengthyMessage ,lengthyMessage,dummyContactInfor[2]),
-    createRequest(11,"title 1", lengthyMessage ,"ad3413",dummyContactInfor[3]),
-]
+// const dummyRequest = [
+//     createRequest(2,"title 1", lengthyMessage ,lengthyMessage,dummyContactInfor[0]),
+//     createRequest(5,"title 1", lengthyMessage ,lengthyMessage,dummyContactInfor[1]),
+//     createRequest(8,"title 1", lengthyMessage ,lengthyMessage,dummyContactInfor[2]),
+//     createRequest(11,"title 1", lengthyMessage ,"ad3413",dummyContactInfor[3]),
+// ]
 
 const createdUserProfileId = 6;
 function RequestTable(){
-    const {data,isLoading,error} = useQuery({
-        queryKey:["requested-helps"],
-        queryFn: ()=>getRequestedHelpsByCreatedUserProfileId(createdUserProfileId),
-    });
-    if(isLoading){
+    const {requestedHelpsByCreatedProfileId,isRequestedHelpsLoading,error} = useRequestedHelpsByCreatedUserProfileId(createdUserProfileId);
+    console.log(requestedHelpsByCreatedProfileId);
+    if(isRequestedHelpsLoading){
         return <Spinner/>
     }
 
     return (
         <Row type="vertical">
-        {data.map(request=> <RequestCard request={request} key={request.id}/>)}
+        {requestedHelpsByCreatedProfileId.map(request=> <RequestCard request={request} key={request.id}/>)}
         </Row>
     )
 }
