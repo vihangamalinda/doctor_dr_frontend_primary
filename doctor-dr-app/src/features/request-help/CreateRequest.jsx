@@ -3,11 +3,9 @@ import Form from "../../ui/secondary-ui/Form";
 import Input from '../../ui/secondary-ui/Input';
 import Textarea from '../../ui/secondary-ui/TextArea';
 import Button from '../../ui/secondary-ui/Button';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import toast from 'react-hot-toast';
-import {createRequestHelp} from "../../services/apis/apiRequestHelp.js"
 import styled from 'styled-components';
 import CustomFormRow from '../../ui/secondary-ui/CustomFormRow.jsx';
+import { useCreateRequestHelp } from './hooks/useCreateRequestHelp.js';
 
 const createLocalDateTime =()=>{
   const now = new Date();
@@ -36,17 +34,7 @@ const createRequestedHelpData =(data,createdUserProfileId)=>{
     }
 }
 function CreateRquest(){
-    const queryClient =useQueryClient();
-    const {mutate,isLoading} =useMutation({
-        mutationFn:createRequestHelp,
-        onSuccess:()=>{
-            toast.success("created the request");
-            queryClient.invalidateQueries({queryKey:["requested-helps"]})
-        },
-        onError:(error)=>{
-            toast.error(error);
-        }
-    })
+    const {createRequestHelp,isCreating}=useCreateRequestHelp();
     const { register, handleSubmit,formState } = useForm();
     const {errors} =formState;
     console.log("formstate error",errors);
@@ -55,7 +43,7 @@ function CreateRquest(){
         const createdUserProfileId =6;
         const requestedHelpData=createRequestedHelpData(data,createdUserProfileId);
         console.log("data",data);
-        mutate(requestedHelpData);
+        createRequestHelp(requestedHelpData);
     }
 
     function onError(err){
@@ -72,7 +60,7 @@ function CreateRquest(){
                 <Textarea  type="text" id="description" {...register("description",{required:"Description is required"})} />
              </CustomFormRow>
             <CustomFormRow>
-                <Button variation="primary" size="large" type="submit">Submit</Button>
+                <Button variation="primary" size="large" type="submit" disabled={isCreating}>Submit</Button>
             </CustomFormRow>
 
         </Form>
