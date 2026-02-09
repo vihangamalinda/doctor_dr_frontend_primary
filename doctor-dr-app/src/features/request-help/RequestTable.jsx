@@ -29,32 +29,6 @@ const TableHeader = styled.header`
   padding: 1.6rem 2.4rem;
 `;
 
-// function createRequest(id,title,description,feedback,contactInfor){
-//     return {
-//         id,
-//         title,
-//         description,
-//         feedback,
-//         contactInfor
-//     }
-// }
-// const dummyContactInfor = [
-//   { name: "adsd", contactNumber: "help@gmail.com" },
-//   { name: "adsdhfs", contactNumber: "help1@gmail.com" },
-//   { name: "gheadsd", contactNumber: "help2@gmail.com" },
-//   { name: "bnmadsd", contactNumber: "help3@gmail.com" },
-// ];
-// const lengthyMessage = `agasddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxcxcxcffffffffffffffaaaaaaaaaaaasdsadww eewdads  asdasdasdasdasdasdasddadsdavxxc
-//  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-// `
-
-// const dummyRequest = [
-//     createRequest(2,"title 1", lengthyMessage ,lengthyMessage,dummyContactInfor[0]),
-//     createRequest(5,"title 1", lengthyMessage ,lengthyMessage,dummyContactInfor[1]),
-//     createRequest(8,"title 1", lengthyMessage ,lengthyMessage,dummyContactInfor[2]),
-//     createRequest(11,"title 1", lengthyMessage ,"ad3413",dummyContactInfor[3]),
-// ]
-
 const createdUserProfileId = 6;
 function RequestTable(){
     const {requestedHelpsByCreatedProfileId,isRequestedHelpsLoading,error} = useRequestedHelpsByCreatedUserProfileId(createdUserProfileId);
