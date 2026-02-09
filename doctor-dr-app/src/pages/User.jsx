@@ -4,6 +4,7 @@ import Heading from "../ui/secondary-ui/Heading";
 import { useQuery } from "@tanstack/react-query";
 import {getUserProfileById} from "../services/apis/apiUserProfile.js"
 import Spinner from "../ui/secondary-ui/Spinner.jsx";
+import { useUserProfileById } from "../features/user-profile/hooks/useUserProfileById.js";
 
 const user ={
     id:2,
@@ -27,21 +28,19 @@ const hospital ={
     postalCode:"1067"
   }
 }
+const userProfileId =6;
 
 function User(){
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["user-profile"],
-    queryFn: () => getUserProfileById(6),
-  });
+  const {userProfileDataById,isUserProfileLoading} = useUserProfileById(userProfileId)
  
-  if (isLoading) return <Spinner />;
-  console.log(data.hospital);
+  if (isUserProfileLoading) return <Spinner />;
+
   return (
     <>
       <Heading as="h1"> User details</Heading>
-      <UserProfileInformation user={data} />
+      <UserProfileInformation user={userProfileDataById} />
       <p> Hospital information </p>
-      <HospitalInformation hospital={data.hospital} />
+      <HospitalInformation hospital={userProfileDataById.hospital} />
     </>
   );
 }
