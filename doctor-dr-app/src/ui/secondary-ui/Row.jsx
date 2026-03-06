@@ -32,6 +32,15 @@ const Row = styled.div`
       align-items: center;
       gap: 5px;
     `}
+
+     ${(props)=>
+    props.type === 'horizontal-end' &&
+     css`
+      justify-content: flex-end;
+      align-items: center;
+      gap: 5px;
+      padding-right: 30px;
+    `}
     
 `;
 
