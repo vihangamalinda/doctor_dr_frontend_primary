@@ -103,6 +103,21 @@ function MainNav() {
             <HiCog8Tooth /> <span>Settings</span>
           </StyledNavLink>
         </li>
+        <li>
+          <StyledNavLink to="/preview-reported-issues">
+            <HiCog8Tooth /> <span>Reported Issues</span>
+          </StyledNavLink>
+        </li>
+          <li>
+          <StyledNavLink to="/registered-user-profiles">
+            <HiCog8Tooth /> <span>Registered Users</span>
+          </StyledNavLink>
+        </li>
+                  <li>
+          <StyledNavLink to="/operational-staff-user-profiles">
+            <HiCog8Tooth /> <span>Operational Staff</span>
+          </StyledNavLink>
+        </li>
       </NavList>
     </nav>
   );
