@@ -17,6 +17,9 @@ import PageNotFound from './pages/PageNotFound';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
+import PreviewReportedIssues from './pages/PreviewReportedIssues';
+import RegisteredUsers from './pages/RegisteredUsers';
+import OperationalStaff from './pages/OperationalStaff';
 
 
 const queryClient =new QueryClient({
@@ -63,6 +66,9 @@ function App() {
             <Route path="settings" element={<Settings />} />
             <Route path="user" element={<User />} />
             <Route path="request-helper" element={<Request />} />
+            <Route path="preview-reported-issues" element={<PreviewReportedIssues/>}/>
+            <Route path="registered-user-profiles" element={<RegisteredUsers/>}/>
+            <Route path="operational-staff-user-profiles" element={<OperationalStaff/>}/>
           </Route>
           <Route path="login" element={<Login />} />
           <Route path="*" element={<PageNotFound />} />
