@@ -118,6 +118,17 @@ function MainNav() {
             <HiCog8Tooth /> <span>Operational Staff</span>
           </StyledNavLink>
         </li>
+        <li>
+          <StyledNavLink to="/add-common-user-profile">
+            <HiCog8Tooth /> <span>Add user profiles</span>
+          </StyledNavLink>
+        </li>
+          <li>
+          <StyledNavLink to="/add-operational-staff-user-profile">
+            <HiCog8Tooth /> <span>Add Operational Staff</span>
+          </StyledNavLink>
+        </li>
+
       </NavList>
     </nav>
   );
