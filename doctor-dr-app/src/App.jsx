@@ -20,6 +20,8 @@ import { Toaster } from 'react-hot-toast';
 import PreviewReportedIssues from './pages/PreviewReportedIssues';
 import RegisteredUsers from './pages/RegisteredUsers';
 import OperationalStaff from './pages/OperationalStaff';
+import AddCommonUserProfile from './pages/AddCommonUserProfile';
+import AddOperationalStaff from './pages/AddOperationalStaff';
 
 
 const queryClient =new QueryClient({
@@ -69,6 +71,8 @@ function App() {
             <Route path="preview-reported-issues" element={<PreviewReportedIssues/>}/>
             <Route path="registered-user-profiles" element={<RegisteredUsers/>}/>
             <Route path="operational-staff-user-profiles" element={<OperationalStaff/>}/>
+            <Route path="add-common-user-profile" element={<AddCommonUserProfile/>}/>
+             <Route path="add-operational-staff-user-profile" element={<AddOperationalStaff/>}/>
           </Route>
           <Route path="login" element={<Login />} />
           <Route path="*" element={<PageNotFound />} />
