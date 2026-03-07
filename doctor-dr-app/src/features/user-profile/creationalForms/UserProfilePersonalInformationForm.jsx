@@ -23,7 +23,7 @@ function UserProfilePersonalInformationForm() {
           {...register("lastName", { required: "Last name is required" })}
         />
       </CustomFormRow>
-      
+
       <LocationInformationForm />
     </>
   );

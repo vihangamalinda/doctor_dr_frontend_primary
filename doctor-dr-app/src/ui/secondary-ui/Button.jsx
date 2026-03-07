@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 const sizes = {
   small: css`
@@ -58,7 +58,7 @@ const Button = styled.button`
 `;
 
 Button.defaultProps = {
-  variations: 'primary',
-  size: 'medium',
+  variations: "primary",
+  size: "medium",
 };
 export default Button;

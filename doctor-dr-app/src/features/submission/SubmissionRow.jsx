@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const TableRow = styled.div`
   display: grid;
-  grid-template-columns:  2fr 1.3fr 1.5fr 1.7fr 1.7fr;
+  grid-template-columns: 2fr 1.3fr 1.5fr 1.7fr 1.7fr;
   column-gap: 2.4rem;
   align-items: center;
   padding: 1.4rem 2.4rem;
@@ -25,38 +25,44 @@ const PatientReferenceId = styled.div`
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--color-grey-600);
-  font-family: 'Sono';
+  font-family: "Sono";
 `;
 
 const HasDisease = styled.div`
-  font-family: 'Sono';
+  font-family: "Sono";
   font-weight: 600;
 `;
 
 const DiseaseStageName = styled.div`
-  font-family: 'Sono';
+  font-family: "Sono";
   font-weight: 500;
   color: var(--color-green-700);
 `;
-const deleteBtId = (id)=> console.log("submission id deleting darft."+id);
-const diseaseFormatter =(hasDisease) => hasDisease?"Yes":"No";
+const deleteBtId = (id) => console.log("submission id deleting darft." + id);
+const diseaseFormatter = (hasDisease) => (hasDisease ? "Yes" : "No");
 
-function SubmissionRow({submissionData}){
-    const {submissionId,patientReferenceId,createdDateTime,hasDisease,diseaseStage} = submissionData;
-    const {name} =diseaseStage;
-    const isDeleting =false;
-    const diseaseContain =diseaseFormatter(hasDisease);
-    console.log(patientReferenceId)
-    return (
-      <TableRow>
-        <PatientReferenceId>{patientReferenceId}</PatientReferenceId>
-        <div>{createdDateTime}</div>
-        <HasDisease>{diseaseContain}</HasDisease>
-        <DiseaseStageName>{name}</DiseaseStageName>
-        <button onClick={() => deleteBtId(submissionId)} disabled={isDeleting}>
-          Delete
-        </button>
-      </TableRow>
-    );
+function SubmissionRow({ submissionData }) {
+  const {
+    submissionId,
+    patientReferenceId,
+    createdDateTime,
+    hasDisease,
+    diseaseStage,
+  } = submissionData;
+  const { name } = diseaseStage;
+  const isDeleting = false;
+  const diseaseContain = diseaseFormatter(hasDisease);
+  console.log(patientReferenceId);
+  return (
+    <TableRow>
+      <PatientReferenceId>{patientReferenceId}</PatientReferenceId>
+      <div>{createdDateTime}</div>
+      <HasDisease>{diseaseContain}</HasDisease>
+      <DiseaseStageName>{name}</DiseaseStageName>
+      <button onClick={() => deleteBtId(submissionId)} disabled={isDeleting}>
+        Delete
+      </button>
+    </TableRow>
+  );
 }
 export default SubmissionRow;

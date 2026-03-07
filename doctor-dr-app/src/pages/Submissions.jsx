@@ -1,6 +1,6 @@
-import SubmissionTable from '../features/submission/SubmissionTable';
-import Heading from '../ui/secondary-ui/Heading';
-import Row from '../ui/secondary-ui/Row';
+import SubmissionTable from "../features/submission/SubmissionTable";
+import Heading from "../ui/secondary-ui/Heading";
+import Row from "../ui/secondary-ui/Row";
 
 function Submissions() {
   return (

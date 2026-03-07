@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import RequestCard from './RequestCard';
-import Row from '../../ui/secondary-ui/Row';
-import Spinner from '../../ui/secondary-ui/Spinner.jsx';
-import { useRequestedHelpsByCreatedUserProfileId } from './hooks/useRequestedHelpsByCreatedUserProfileId.js';
+import styled from "styled-components";
+import RequestCard from "./RequestCard";
+import Row from "../../ui/secondary-ui/Row";
+import Spinner from "../../ui/secondary-ui/Spinner.jsx";
+import { useRequestedHelpsByCreatedUserProfileId } from "./hooks/useRequestedHelpsByCreatedUserProfileId.js";
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
 
@@ -14,7 +14,7 @@ const Table = styled.div`
 
 const TableHeader = styled.header`
   display: grid;
-  grid-template-columns:   2fr 1.3fr 1.5fr 1.7fr 1.7fr;
+  grid-template-columns: 2fr 1.3fr 1.5fr 1.7fr 1.7fr;
   column-gap: 2.4rem;
   align-items: center;
 
@@ -28,17 +28,20 @@ const TableHeader = styled.header`
 `;
 
 const createdUserProfileId = 6;
-function RequestTable(){
-    const {requestedHelpsByCreatedProfileId,isRequestedHelpsLoading,error} = useRequestedHelpsByCreatedUserProfileId(createdUserProfileId);
+function RequestTable() {
+  const { requestedHelpsByCreatedProfileId, isRequestedHelpsLoading, error } =
+    useRequestedHelpsByCreatedUserProfileId(createdUserProfileId);
 
-    if(isRequestedHelpsLoading){
-        return <Spinner/>
-    }
+  if (isRequestedHelpsLoading) {
+    return <Spinner />;
+  }
 
-    return (
-        <Row type="vertical">
-        {requestedHelpsByCreatedProfileId.map(request=> <RequestCard request={request} key={request.id}/>)}
-        </Row>
-    )
+  return (
+    <Row type="vertical">
+      {requestedHelpsByCreatedProfileId.map((request) => (
+        <RequestCard request={request} key={request.id} />
+      ))}
+    </Row>
+  );
 }
 export default RequestTable;

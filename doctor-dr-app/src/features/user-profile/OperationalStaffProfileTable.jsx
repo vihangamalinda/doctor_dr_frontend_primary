@@ -4,9 +4,9 @@ import { useAllUserProfile } from "./hooks/useAllUserProfile";
 import OperationalStaffProfileCard from "./OperationalStaffProfileCard";
 
 function OperationalStaffProfileTable() {
-    /**
-     * TODO: need to retrive only operational staff users not everyone
-     */
+  /**
+   * TODO: need to retrive only operational staff users not everyone
+   */
   const { allUserProfiles, isAllUserProfileLoading, error } =
     useAllUserProfile();
   if (isAllUserProfileLoading) {

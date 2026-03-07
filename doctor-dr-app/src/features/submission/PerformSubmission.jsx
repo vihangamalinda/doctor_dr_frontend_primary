@@ -24,9 +24,8 @@ const createSubmmisionData = (patientReferenceId, image, userProfileId) => {
   return formData;
 };
 
-
 function PerformSubmission() {
-  const  {createSubmission,isCreating} =useCreateSubmission();
+  const { createSubmission, isCreating } = useCreateSubmission();
   const methods = useForm();
   const { register, handleSubmit, formState } = methods;
   const { errors } = formState;
@@ -37,7 +36,6 @@ function PerformSubmission() {
     const submission = createSubmmisionData(patientReferenceId, image, userId);
     createSubmission(submission);
   }
-
 
   function onError(err) {
     console.log(err);
@@ -62,7 +60,12 @@ function PerformSubmission() {
         <ImageInputFormRow />
 
         <CustomFormRow>
-          <Button variation="primary" size="large" type="submit" disabled={isCreating}>
+          <Button
+            variation="primary"
+            size="large"
+            type="submit"
+            disabled={isCreating}
+          >
             Submit
           </Button>
         </CustomFormRow>

@@ -4,9 +4,9 @@ import { useAllUserProfile } from "./hooks/useAllUserProfile";
 import UserProfileCard from "./UserProfileCard";
 
 function UserProfileTable() {
-    /**
-     * TODO: need to retrive only common users not everyone
-     */
+  /**
+   * TODO: need to retrive only common users not everyone
+   */
   const { allUserProfiles, isAllUserProfileLoading, error } =
     useAllUserProfile();
 

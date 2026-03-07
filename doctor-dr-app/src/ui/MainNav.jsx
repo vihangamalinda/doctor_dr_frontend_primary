@@ -6,14 +6,13 @@ import {
   HiOutlineHomeModern,
   HiOutlineUsers,
   HiOutlineCog8Tooth,
-  HiMiniChartBarSquare ,
-  HiMiniEye ,
+  HiMiniChartBarSquare,
+  HiMiniEye,
   HiMiniChatBubbleBottomCenterText,
   HiMiniUser,
-  HiCog8Tooth ,
-  HiBugAnt ,
-  HiMiniHome
-
+  HiCog8Tooth,
+  HiBugAnt,
+  HiMiniHome,
 } from "react-icons/hi2";
 
 const NavList = styled.ul`
@@ -84,7 +83,7 @@ function MainNav() {
         </li>
         <li>
           <StyledNavLink to="/report-issue">
-            <HiBugAnt  /> <span>Report issue</span>
+            <HiBugAnt /> <span>Report issue</span>
           </StyledNavLink>
         </li>
         <li>
@@ -108,12 +107,12 @@ function MainNav() {
             <HiCog8Tooth /> <span>Reported Issues</span>
           </StyledNavLink>
         </li>
-          <li>
+        <li>
           <StyledNavLink to="/registered-user-profiles">
             <HiCog8Tooth /> <span>Registered Users</span>
           </StyledNavLink>
         </li>
-                  <li>
+        <li>
           <StyledNavLink to="/operational-staff-user-profiles">
             <HiCog8Tooth /> <span>Operational Staff</span>
           </StyledNavLink>
@@ -123,12 +122,11 @@ function MainNav() {
             <HiCog8Tooth /> <span>Add user profiles</span>
           </StyledNavLink>
         </li>
-          <li>
+        <li>
           <StyledNavLink to="/add-operational-staff-user-profile">
             <HiCog8Tooth /> <span>Add Operational Staff</span>
           </StyledNavLink>
         </li>
-
       </NavList>
     </nav>
   );

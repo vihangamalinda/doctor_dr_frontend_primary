@@ -1,15 +1,19 @@
-import {getAllSubmissionsByUserProfileId as getAllSubmissionsByUserProfileIdApi} from "../../../services/apis/apiSubmission.js";
-import { useQuery } from '@tanstack/react-query';
+import { getAllSubmissionsByUserProfileId as getAllSubmissionsByUserProfileIdApi } from "../../../services/apis/apiSubmission.js";
+import { useQuery } from "@tanstack/react-query";
 
-export function useSubmissionByUserProfileId(userProfileId){
-      const {data:submissionsByUserProfileId,isLoading:isSubmissionsLoading,error} = useQuery({
-    queryKey:["submissions"],
-    queryFn:()=>getAllSubmissionsByUserProfileIdApi(userProfileId)
+export function useSubmissionByUserProfileId(userProfileId) {
+  const {
+    data: submissionsByUserProfileId,
+    isLoading: isSubmissionsLoading,
+    error,
+  } = useQuery({
+    queryKey: ["submissions"],
+    queryFn: () => getAllSubmissionsByUserProfileIdApi(userProfileId),
   });
 
-  return ({
+  return {
     submissionsByUserProfileId,
     isSubmissionsLoading,
-    error
-  })
+    error,
+  };
 }

@@ -4,11 +4,12 @@ import Heading from "../ui/secondary-ui/Heading";
 import Spinner from "../ui/secondary-ui/Spinner.jsx";
 import { useUserProfileById } from "../features/user-profile/hooks/useUserProfileById.js";
 
-const userProfileId =6;
+const userProfileId = 6;
 
-function User(){
-  const {userProfileDataById,isUserProfileLoading} = useUserProfileById(userProfileId)
- 
+function User() {
+  const { userProfileDataById, isUserProfileLoading } =
+    useUserProfileById(userProfileId);
+
   if (isUserProfileLoading) return <Spinner />;
 
   return (

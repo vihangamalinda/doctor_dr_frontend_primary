@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import SubmissionRow from './SubmissionRow';
-import Spinner from '../../ui/secondary-ui/Spinner.jsx';
-import { useSubmissionByUserProfileId } from './hooks/useSubmissionsByUserProfileId.js';
+import styled from "styled-components";
+import SubmissionRow from "./SubmissionRow";
+import Spinner from "../../ui/secondary-ui/Spinner.jsx";
+import { useSubmissionByUserProfileId } from "./hooks/useSubmissionsByUserProfileId.js";
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -14,7 +14,7 @@ const Table = styled.div`
 
 const TableHeader = styled.header`
   display: grid;
-  grid-template-columns:   2fr 1.3fr 1.5fr 1.7fr 1.7fr;
+  grid-template-columns: 2fr 1.3fr 1.5fr 1.7fr 1.7fr;
   column-gap: 2.4rem;
   align-items: center;
 
@@ -27,28 +27,31 @@ const TableHeader = styled.header`
   padding: 1.6rem 2.4rem;
 `;
 
-const userProfileId=6;
+const userProfileId = 6;
 
-function SubmissionTable(){
-  const {submissionsByUserProfileId,isSubmissionsLoading} =useSubmissionByUserProfileId(userProfileId);
-    if(isSubmissionsLoading) return <Spinner/>
+function SubmissionTable() {
+  const { submissionsByUserProfileId, isSubmissionsLoading } =
+    useSubmissionByUserProfileId(userProfileId);
+  if (isSubmissionsLoading) return <Spinner />;
 
-    return (
-      <Table>
-        <TableHeader>
-          <div>patient Referance Id</div>
-          <div>createdDate</div>
-          <div>hase Disease</div>
-          <div>diseaseStage</div>
-          <div>Discount</div>
-          <div></div>
-        </TableHeader>
+  return (
+    <Table>
+      <TableHeader>
+        <div>patient Referance Id</div>
+        <div>createdDate</div>
+        <div>hase Disease</div>
+        <div>diseaseStage</div>
+        <div>Discount</div>
+        <div></div>
+      </TableHeader>
 
-        {submissionsByUserProfileId.map((submission) => (
-          <SubmissionRow submissionData={submission} key={submission.submissionId} />
-        ))}
-      </Table>
-    );
-
+      {submissionsByUserProfileId.map((submission) => (
+        <SubmissionRow
+          submissionData={submission}
+          key={submission.submissionId}
+        />
+      ))}
+    </Table>
+  );
 }
 export default SubmissionTable;

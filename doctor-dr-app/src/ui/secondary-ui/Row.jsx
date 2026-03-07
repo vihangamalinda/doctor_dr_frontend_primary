@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 const Row = styled.div`
   display: flex;
@@ -17,34 +17,33 @@ const Row = styled.div`
       gap: 1.6rem;
     `}
 
-  ${(props)=>
-    props.type === 'horizontal-start' &&
-     css`
+  ${(props) =>
+    props.type === "horizontal-start" &&
+    css`
       justify-content: flex-start;
       align-items: center;
       gap: 5px;
     `}
 
-     ${(props)=>
-    props.type === 'horizontal-center' &&
-     css`
+     ${(props) =>
+    props.type === "horizontal-center" &&
+    css`
       justify-content: center;
       align-items: center;
       gap: 5px;
     `}
 
-     ${(props)=>
-    props.type === 'horizontal-end' &&
-     css`
+     ${(props) =>
+    props.type === "horizontal-end" &&
+    css`
       justify-content: flex-end;
       align-items: center;
       gap: 5px;
       padding-right: 30px;
     `}
-    
 `;
 
 Row.defaultProps = {
-  type: 'vertical',
+  type: "vertical",
 };
 export default Row;

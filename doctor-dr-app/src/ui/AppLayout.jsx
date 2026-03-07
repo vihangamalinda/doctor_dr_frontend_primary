@@ -1,9 +1,9 @@
-import { Outlet } from 'react-router-dom';
-import Dashboard from '../pages/Dashboard';
-import Submissions from '../pages/Submissions';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import { styled } from 'styled-components';
+import { Outlet } from "react-router-dom";
+import Dashboard from "../pages/Dashboard";
+import Submissions from "../pages/Submissions";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+import { styled } from "styled-components";
 // import ImageInput from "../features/submission/PerformSubmission";
 
 const StyledAppLayout = styled.div`

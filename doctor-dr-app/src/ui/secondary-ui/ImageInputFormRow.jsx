@@ -1,31 +1,30 @@
-import { useEffect,useRef,useState} from "react";
+import { useEffect, useRef, useState } from "react";
 import { useFormContext } from "react-hook-form";
-import FormRow from '../../ui/secondary-ui/FormRow';
-import styled from 'styled-components';
+import FormRow from "../../ui/secondary-ui/FormRow";
+import styled from "styled-components";
 
 function ImageInputFormRow() {
-    const { register,watch, formState } = useFormContext();
-    const { errors } = formState;
+  const { register, watch, formState } = useFormContext();
+  const { errors } = formState;
 
-    const [preview, setPreview] = useState(null);
-    const fileInputRef = useRef(null);
-    const imageFiles = watch("image"); // FileList
+  const [preview, setPreview] = useState(null);
+  const fileInputRef = useRef(null);
+  const imageFiles = watch("image"); // FileList
 
-    useEffect(() => {
-      if (imageFiles && imageFiles.length > 0) {
-        const file = imageFiles[0];
-        const objectUrl = URL.createObjectURL(file);
-        setPreview(objectUrl);
+  useEffect(() => {
+    if (imageFiles && imageFiles.length > 0) {
+      const file = imageFiles[0];
+      const objectUrl = URL.createObjectURL(file);
+      setPreview(objectUrl);
 
-        return () => URL.revokeObjectURL(objectUrl); // cleanup
-      }
-    }, [imageFiles]);
-      
-    
-const Error = styled.span`
-  font-size: 1.4rem;
-  color: var(--color-red-700);
-`;
+      return () => URL.revokeObjectURL(objectUrl); // cleanup
+    }
+  }, [imageFiles]);
+
+  const Error = styled.span`
+    font-size: 1.4rem;
+    color: var(--color-red-700);
+  `;
 
   return (
     <>

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const LabelPrimary =styled.label`
+const LabelPrimary = styled.label`
   font-weight: 700;
-`
+`;
 export default LabelPrimary;

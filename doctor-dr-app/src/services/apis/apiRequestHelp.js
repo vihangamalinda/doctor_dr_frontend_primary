@@ -31,10 +31,10 @@ const deleteRequestHelpById = async (id) => {
 
 // };
 
-const getRequestedHelpsByCreatedUserProfileId =async(id)=>{
+const getRequestedHelpsByCreatedUserProfileId = async (id) => {
   return await getData(
     REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_CREATED_BY_USER_PROFILE_ID(id),
-  )
+  );
 };
 
 export {
