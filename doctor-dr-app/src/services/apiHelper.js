@@ -15,6 +15,7 @@ const getData = async (url) => {
     return data;
   } catch (error) {
     console.log("Error", error);
+    throw new Error("Failed to retrieve data. Please try again later.");
   }
 };
 
@@ -31,6 +32,7 @@ const updateData = async ({ url, obj }) => {
     return await response.json();
   } catch (error) {
     console.log("error", error);
+    throw new Error("Failed to update data. Please try again later.");
   }
 };
 
@@ -43,6 +45,7 @@ const deleteData = async (url) => {
     return await response.json();
   } catch (error) {
     console.log("error", error);
+    throw new Error("Failed to delete data. Please try again later.");
   }
 };
 
@@ -55,6 +58,7 @@ const createMultiPartFormData = async ({ url, obj }) => {
     validateResponse(response);
   } catch (error) {
     console.log(error);
+    throw new Error("Failed to create data. Please try again later.");
   }
 };
 
@@ -71,6 +75,7 @@ const createData = async ({ url, obj }) => {
     // return data;
   } catch (error) {
     console.log("error", error);
+    throw new Error("Failed to create data. Please try again later.");
   }
 };
 
