@@ -74,4 +74,21 @@ const createData = async ({ url, obj }) => {
   }
 };
 
-export { getData, updateData, deleteData, createData, createMultiPartFormData };
+const createDataAndReturnResponse = async ({ url, obj }) => {
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(obj),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    validateResponse(response);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log("error", error);
+    throw new Error("Failed to create data. Please try again later.");
+  }
+};
+
+export { getData, updateData, deleteData, createData, createMultiPartFormData,createDataAndReturnResponse };
