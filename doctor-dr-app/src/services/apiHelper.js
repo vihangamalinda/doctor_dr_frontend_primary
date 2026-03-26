@@ -8,7 +8,10 @@ const getData = async (url) => {
   try {
     const response = await fetch(url, {
       method: "GET",
+      credentials: "include",
     });
+
+    isAuthenticated(response);
     validateResponse(response);
 
     const data = await response.json();
@@ -26,8 +29,10 @@ const updateData = async ({ url, obj }) => {
       method: "PUT",
       body: JSON.stringify(obj),
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
     });
 
+    isAuthenticated(response);
     validateResponse(response);
     return await response.json();
   } catch (error) {
@@ -40,7 +45,9 @@ const deleteData = async (url) => {
   try {
     const response = await fetch(url, {
       method: "DELETE",
+      credentials: "include",
     });
+    isAuthenticated(response);
     validateResponse(response);
     return await response.json();
   } catch (error) {
@@ -54,7 +61,9 @@ const createMultiPartFormData = async ({ url, obj }) => {
     const response = await fetch(url, {
       method: "POST",
       body: obj,
+      credentials: "include",
     });
+    isAuthenticated(response);
     validateResponse(response);
   } catch (error) {
     console.log(error);
@@ -68,8 +77,9 @@ const createData = async ({ url, obj }) => {
       method: "POST",
       body: JSON.stringify(obj),
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
     });
-
+    isAuthenticated(response);
     validateResponse(response);
     // const data = await response.json();
     // return data;
@@ -85,8 +95,9 @@ const createDataAndReturnResponse = async ({ url, obj }) => {
       method: "POST",
       body: JSON.stringify(obj),
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
     });
-
+    isAuthenticated(response);
     validateResponse(response);
     const data = await response.json();
     return data;
@@ -95,5 +106,12 @@ const createDataAndReturnResponse = async ({ url, obj }) => {
     throw new Error("Failed to create data. Please try again later.");
   }
 };
+
+const isAuthenticated =  (response) => {
+  if (response.status === 401 || response.status === 403) {
+    window.location.href = "/login";
+    return;
+  }
+}
 
 export { getData, updateData, deleteData, createData, createMultiPartFormData,createDataAndReturnResponse };
