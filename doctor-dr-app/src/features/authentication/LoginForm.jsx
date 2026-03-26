@@ -27,7 +27,11 @@ const Header = styled.h1`
 function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { login, isAuthenticating } = useLogin();
+  const resetForm = () => {
+    setUsername("");
+    setPassword("");
+  }
+  const { login, isAuthenticating } = useLogin(resetForm);
 
   const methods = useForm();
   const { handleSubmit, formState } = methods;
