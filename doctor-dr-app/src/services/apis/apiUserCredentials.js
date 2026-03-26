@@ -18,4 +18,8 @@ const createJwtTokenByUserLogin = async (userCredentials) => {
   return await createDataAndReturnResponse(data);
 };
 
-export { getAllUserNames, createJwtTokenByUserLogin };
+const getCurrentLoggedUser =async()=>{
+  return await getData(USER_CREDENTIALS_API_URLs.USER_CREDENTIALS_PERFORM_GET_CURRENT_LOGGED_USER);
+}
+
+export { getAllUserNames, createJwtTokenByUserLogin, getCurrentLoggedUser };
