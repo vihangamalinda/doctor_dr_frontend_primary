@@ -22,6 +22,7 @@ import RegisteredUsers from "./pages/RegisteredUsers";
 import OperationalStaff from "./pages/OperationalStaff";
 import AddCommonUserProfile from "./pages/AddCommonUserProfile";
 import AddOperationalStaff from "./pages/AddOperationalStaff";
+import ProtectedRoute from "./ui/ProtecctedRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -57,7 +58,13 @@ function App() {
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
-          <Route element={<AppLayout />}>
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Navigate replace to="dashboard" />} />
             <Route path="dashboard" element={<DashBoard />} />
             <Route path="submissions" element={<Submissions />} />
