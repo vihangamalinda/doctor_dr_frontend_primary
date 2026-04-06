@@ -108,11 +108,18 @@ const createDataAndReturnResponse = async ({ url, obj }) => {
   }
 };
 
-const isAuthenticated =  (response) => {
+const isAuthenticated = (response) => {
   if (response.status === 401 || response.status === 403) {
     window.location.href = "/login";
     return;
   }
-}
+};
 
-export { getData, updateData, deleteData, createData, createMultiPartFormData,createDataAndReturnResponse };
+export {
+  getData,
+  updateData,
+  deleteData,
+  createData,
+  createMultiPartFormData,
+  createDataAndReturnResponse,
+};

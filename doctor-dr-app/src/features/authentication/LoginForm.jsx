@@ -30,7 +30,7 @@ function LoginForm() {
   const resetForm = () => {
     setUsername("");
     setPassword("");
-  }
+  };
   const { login, isAuthenticating } = useLogin(resetForm);
 
   const methods = useForm();
@@ -48,7 +48,7 @@ function LoginForm() {
     };
     login(data);
   };
-  
+
   function onError(err) {
     console.log(err);
   }

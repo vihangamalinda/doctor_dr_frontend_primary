@@ -16,9 +16,7 @@ const Table = styled.div`
   overflow: hidden;
 `;
 
-
-
-function SubmissionPredictionResult({ prediction ,resetSubmissionResult}) {
+function SubmissionPredictionResult({ prediction, resetSubmissionResult }) {
   const {
     active,
     createdDateTime,
@@ -31,58 +29,63 @@ function SubmissionPredictionResult({ prediction ,resetSubmissionResult}) {
     userProfile,
   } = prediction;
 
-  const {id,
-        name : diseaseStageName,
-       diseaseLevel}=diseaseStage;
+  const { id, name: diseaseStageName, diseaseLevel } = diseaseStage;
 
-  const {classProbability,message,overlayImage,originalInputImage,predictionIndex} =modelPredictionDetails
-  const {id:userProfileId} = userProfile;
-  const {id:statusId,name :StatusDefinition} = status;
+  const {
+    classProbability,
+    message,
+    overlayImage,
+    originalInputImage,
+    predictionIndex,
+  } = modelPredictionDetails;
+  const { id: userProfileId } = userProfile;
+  const { id: statusId, name: StatusDefinition } = status;
   return (
     <>
-    <Row type="horizontal">
-     <Button variation="primary" size="large" 
-    onClick={() => resetSubmissionResult()}>
-       <HiMiniArrowUturnLeft /> Perform another submission 
-      </Button>
-    
-      <SubmissionReportDownload prediction={prediction} />
+      <Row type="horizontal">
+        <Button
+          variation="primary"
+          size="large"
+          onClick={() => resetSubmissionResult()}
+        >
+          <HiMiniArrowUturnLeft /> Perform another submission
+        </Button>
+
+        <SubmissionReportDownload prediction={prediction} />
       </Row>
-        <Table>
-      <CustomFormRow label="Patient Reference Id" error={null}>
-        <p>{patientReferenceId}</p>
-      </CustomFormRow>
-      <CustomFormRow label="Is the submission currently active" error={null}>
-        <p>{active ? "Yes" : "No"}</p>
-      </CustomFormRow>
-      <CustomFormRow label="createdDateTime" error={null}>
-        <p>{createdDateTime}</p>
-      </CustomFormRow>
-      <CustomFormRow label="diseaseStageName" error={null}>
-        <p>{diseaseStageName}</p>
-      </CustomFormRow>
-      <CustomFormRow label="diseaseLevel" error={null}>
-        <p>{diseaseLevel}</p>
-      </CustomFormRow>
-          <CustomFormRow label="hasDisease" error={null}>
-        <p>{hasDisease ? "Yes" : "No"}</p>
-      </CustomFormRow>
-      <CustomFormRow label="Submission status" error={null}>
-        <p>{StatusDefinition}</p>
-      </CustomFormRow>
-    
+      <Table>
+        <CustomFormRow label="Patient Reference Id" error={null}>
+          <p>{patientReferenceId}</p>
+        </CustomFormRow>
+        <CustomFormRow label="Is the submission currently active" error={null}>
+          <p>{active ? "Yes" : "No"}</p>
+        </CustomFormRow>
+        <CustomFormRow label="createdDateTime" error={null}>
+          <p>{createdDateTime}</p>
+        </CustomFormRow>
+        <CustomFormRow label="diseaseStageName" error={null}>
+          <p>{diseaseStageName}</p>
+        </CustomFormRow>
+        <CustomFormRow label="diseaseLevel" error={null}>
+          <p>{diseaseLevel}</p>
+        </CustomFormRow>
+        <CustomFormRow label="hasDisease" error={null}>
+          <p>{hasDisease ? "Yes" : "No"}</p>
+        </CustomFormRow>
+        <CustomFormRow label="Submission status" error={null}>
+          <p>{StatusDefinition}</p>
+        </CustomFormRow>
 
+        <SubmissionClassProbability classProbability={classProbability} />
 
-      <SubmissionClassProbability classProbability={classProbability} />
+        {/* <img src={`data:image/png;base64,${overlayImage}`} alt="model prediction overlay" /> */}
 
-      {/* <img src={`data:image/png;base64,${overlayImage}`} alt="model prediction overlay" /> */}
-
-      <SubmissionComparisionViewer originalImage={originalInputImage} overlayImage={overlayImage} />
-    </Table>
-
-
+        <SubmissionComparisionViewer
+          originalImage={originalInputImage}
+          overlayImage={overlayImage}
+        />
+      </Table>
     </>
-
   );
 }
 export default SubmissionPredictionResult;

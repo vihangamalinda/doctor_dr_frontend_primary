@@ -6,7 +6,9 @@ const getAllHospital = async () => {
 };
 
 const getAllHospitalByType = async (isInternalSystem) => {
-  return await getData(HOSPITAL_API_URLs.HOSPITAL_PERFORM_GET_ALL_BY_TYPE(isInternalSystem));
+  return await getData(
+    HOSPITAL_API_URLs.HOSPITAL_PERFORM_GET_ALL_BY_TYPE(isInternalSystem),
+  );
 };
 
 const getHospitalById = async (id) => {
@@ -25,4 +27,10 @@ const deleteHospitalById = async (id) => {
   return await deleteData(HOSPITAL_API_URLs.HOSPITAL_PERFORM_DELETE_BY_ID(id));
 };
 
-export { getAllHospital, getHospitalById, createHospital, deleteHospitalById ,getAllHospitalByType};
+export {
+  getAllHospital,
+  getHospitalById,
+  createHospital,
+  deleteHospitalById,
+  getAllHospitalByType,
+};

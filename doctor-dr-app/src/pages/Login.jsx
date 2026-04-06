@@ -11,11 +11,12 @@ const LoginLayout = styled.main`
   background-color: var(--color-grey-50);
 `;
 
-
 function Login() {
-  return <LoginLayout>
-    <LoginForm />
-  </LoginLayout>;
+  return (
+    <LoginLayout>
+      <LoginForm />
+    </LoginLayout>
+  );
 }
 
 export default Login;

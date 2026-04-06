@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 const TableHeader = styled.header`
   display: grid;
   grid-template-columns: 1.5fr 1.5fr 1.5fr;
@@ -42,7 +41,7 @@ const DISEASE_STAGE_MAP = {
   3: "Disease-stage 03",
   4: "Disease-stage 04",
   5: "Disease-stage 05",
-}
+};
 
 const ClassNameStyled = styled.div`
   font-size: 1.6rem;
@@ -54,7 +53,6 @@ const ClassNameStyled = styled.div`
 function SubmissionClassProbability({ classProbability }) {
   return (
     <>
-   
       <Table>
         <TableHeader>
           <div>Class Name</div>

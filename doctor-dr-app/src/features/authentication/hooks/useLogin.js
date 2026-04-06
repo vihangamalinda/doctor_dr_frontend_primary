@@ -4,7 +4,7 @@ import { createJwtTokenByUserLogin } from "../../../services/apis/apiUserCredent
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
-export function useLogin({resetForm}) {
+export function useLogin({ resetForm }) {
   const navigate = useNavigate();
 
   const { mutate: login, isLoading: isAuthenticating } = useMutation({
@@ -22,7 +22,7 @@ export function useLogin({resetForm}) {
       console.log(err);
       toast.error("Login failed. Please check your credentials and try again.");
     },
-    onSettled:resetForm,
+    onSettled: resetForm,
   });
   return { login, isAuthenticating };
 }

@@ -12,7 +12,7 @@ export function useRegularHospital() {
     error,
   } = useQuery({
     queryKey: ["all-regular-hospital"],
-    queryFn: () =>  getAllHospitalByType(false),
+    queryFn: () => getAllHospitalByType(false),
   });
   return {
     allRegularHospital,

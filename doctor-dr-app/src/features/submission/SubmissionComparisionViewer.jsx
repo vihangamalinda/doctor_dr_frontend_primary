@@ -36,22 +36,25 @@ const TableRow = styled.div`
   }
 `;
 
-function SubmissionComparisionViewer({originalImage, overlayImage  }) {
-
-    return (
-        <Table>
-            <TableHeader>
-                <div>Original Input</div>
-                <div>Model Prediction Overlay</div>
-            </TableHeader>
-            <TableRow>
-                <img src={`data:image/png;base64,${originalImage}`} alt="original input" />
-                <img src={`data:image/png;base64,${overlayImage}`} alt="model prediction overlay" />
-            </TableRow>
-        </Table>
-
-    )
-
+function SubmissionComparisionViewer({ originalImage, overlayImage }) {
+  return (
+    <Table>
+      <TableHeader>
+        <div>Original Input</div>
+        <div>Model Prediction Overlay</div>
+      </TableHeader>
+      <TableRow>
+        <img
+          src={`data:image/png;base64,${originalImage}`}
+          alt="original input"
+        />
+        <img
+          src={`data:image/png;base64,${overlayImage}`}
+          alt="model prediction overlay"
+        />
+      </TableRow>
+    </Table>
+  );
 }
 
 export default SubmissionComparisionViewer;

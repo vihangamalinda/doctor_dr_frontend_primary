@@ -37,10 +37,8 @@ const LabelTitleSecondary = styled.label`
 `;
 
 function RequestCard({ request }) {
-  const { title, description, feedback,contact, status } =
-    request;
+  const { title, description, feedback, contact, status } = request;
 
-  
   const hasGivenFeedBack = status.id !== 10003;
 
   return (
@@ -54,10 +52,7 @@ function RequestCard({ request }) {
         <LabelTextArea>{description}</LabelTextArea>
       </LabelGroupStyle>
       {hasGivenFeedBack && (
-        <DisplayFeedback
-          feedback={feedback}
-          contact={contact}
-        />
+        <DisplayFeedback feedback={feedback} contact={contact} />
       )}
     </RequestCardStyle>
   );
