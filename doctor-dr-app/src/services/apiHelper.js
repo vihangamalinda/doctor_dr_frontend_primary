@@ -65,6 +65,7 @@ const createMultiPartFormData = async ({ url, obj }) => {
     });
     isAuthenticated(response);
     validateResponse(response);
+    return await response.json();
   } catch (error) {
     console.log(error);
     throw new Error("Failed to create data. Please try again later.");
