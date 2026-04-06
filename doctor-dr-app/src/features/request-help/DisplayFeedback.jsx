@@ -8,7 +8,9 @@ const SubLabel = styled.label`
   font-weight: 300;
 `;
 
-function DisplayFeedback({ feedback, contactName, contactNumber }) {
+function DisplayFeedback({ feedback, contact }) {
+  const { firstName, lastName, contactNumber } = contact;
+  const contactName = `${firstName} ${lastName}`;
   return (
     <>
       <LabelGroupStyle>
