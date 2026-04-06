@@ -1,4 +1,4 @@
-import { getAllHospital } from "../services/apis/apiHospital.js";
+import { getAllHospitalByType } from "../services/apis/apiHospital.js";
 import { useQuery } from "@tanstack/react-query";
 
 /**
@@ -12,7 +12,7 @@ export function useRegularHospital() {
     error,
   } = useQuery({
     queryKey: ["all-regular-hospital"],
-    queryFn: () => getAllHospital(),
+    queryFn: () =>  getAllHospitalByType(false),
   });
   return {
     allRegularHospital,
