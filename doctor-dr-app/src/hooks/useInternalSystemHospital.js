@@ -1,4 +1,4 @@
-import { getAllHospital } from "../services/apis/apiHospital.js";
+import { getAllHospitalByType } from "../services/apis/apiHospital.js";
 import { useQuery } from "@tanstack/react-query";
 
 /**
@@ -12,7 +12,7 @@ export function useInternalSystemHospital() {
     error,
   } = useQuery({
     queryKey: ["all-internal-system-hospital"],
-    queryFn: () => getAllHospital(),
+    queryFn: () => getAllHospitalByType(true),
   });
   return {
     allInternalSystemHospital,
