@@ -37,8 +37,10 @@ const LabelTitleSecondary = styled.label`
 `;
 
 function RequestCard({ request }) {
-  const { title, description, feedback, contactName, contactNumber, status } =
+  const { title, description, feedback,contact, status } =
     request;
+
+  
   const hasGivenFeedBack = status.id !== 10003;
 
   return (
@@ -54,8 +56,7 @@ function RequestCard({ request }) {
       {hasGivenFeedBack && (
         <DisplayFeedback
           feedback={feedback}
-          contactName={contactName}
-          contactNumber={contactNumber}
+          contact={contact}
         />
       )}
     </RequestCardStyle>
