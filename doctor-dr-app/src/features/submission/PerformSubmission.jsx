@@ -5,6 +5,8 @@ import Button from "../../ui/secondary-ui/Button";
 import CustomFormRow from "../../ui/secondary-ui/CustomFormRow.jsx";
 import ImageInputFormRow from "../../ui/secondary-ui/ImageInputFormRow.jsx";
 import { useCreateSubmission } from "./hooks/useCreateSubmission.js";
+import { useState } from "react";
+import SubmissionPredictionResult from "./SubmissionPredictionResult.jsx";
 
 const createLocalDateTime = () => {
   const now = new Date();
@@ -25,16 +27,24 @@ const createSubmmisionData = (patientReferenceId, image, userProfileId) => {
 };
 
 function PerformSubmission() {
+  const [submissionResult, setSubmissionResult] = useState(null);
+
   const { createSubmission, isCreating } = useCreateSubmission();
   const methods = useForm();
   const { register, handleSubmit, formState } = methods;
   const { errors } = formState;
 
-  function onSubmit(data) {
+  const resetSubmissionResult = ()=>{
+    setSubmissionResult(null);
+  };
+
+  async function onSubmit(data) {
     const userId = 6;
     const { patientReferenceId, image } = data;
     const submission = createSubmmisionData(patientReferenceId, image, userId);
-    createSubmission(submission);
+   
+    const response = await createSubmission(submission);
+    setSubmissionResult(response);
   }
 
   function onError(err) {
@@ -42,6 +52,7 @@ function PerformSubmission() {
   }
 
   return (
+    <>{!submissionResult  && 
     <FormProvider {...methods}>
       <Form onSubmit={handleSubmit(onSubmit, onError)}>
         <CustomFormRow
@@ -71,6 +82,18 @@ function PerformSubmission() {
         </CustomFormRow>
       </Form>
     </FormProvider>
+    }
+    
+
+    {isCreating && <p>Creating submission...</p>}
+    {submissionResult &&
+     <SubmissionPredictionResult 
+     prediction={submissionResult}
+     resetSubmissionResult={resetSubmissionResult}
+     />}
+  
+    </>
+    
   );
 }
 
