@@ -4,9 +4,11 @@ import toast from "react-hot-toast";
 
 export function useCreateSubmission() {
   const queryClient = useQueryClient();
-  const { mutate: createSubmission, isLoading: isCreating } = useMutation({
-    mutationFn: createSubmissionApi,
-    onSuccess: () => {
+  const { mutateAsync: createSubmission, isLoading: isCreating } = useMutation({
+    mutationFn: (data)=> {
+      return createSubmissionApi(data)
+    },
+    onSuccess: (data) => {
       toast.success("created Submission");
       queryClient.invalidateQueries({ queryKey: ["submissions"] });
     },
@@ -14,5 +16,7 @@ export function useCreateSubmission() {
       toast.error(err);
     },
   });
+
+
   return { createSubmission, isCreating };
 }
