@@ -46,6 +46,14 @@ const variations = {
       background-color: var(--color-red-800);
     }
   `,
+  download: css`
+    color: var(--color-green-100);
+    background-color: var(--color-green-500);
+
+    &:hover {
+      background-color: var(--color-green-700);
+    }
+  `,
 };
 
 const Button = styled.button`
