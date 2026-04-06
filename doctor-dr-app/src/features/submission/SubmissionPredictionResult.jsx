@@ -41,7 +41,7 @@ function SubmissionPredictionResult({ prediction ,resetSubmissionResult}) {
   return (
     <>
     <Row type="horizontal">
-     <Button variations="primary" size="large" 
+     <Button variation="primary" size="large" 
     onClick={() => resetSubmissionResult()}>
        <HiMiniArrowUturnLeft /> Perform another submission 
       </Button>
