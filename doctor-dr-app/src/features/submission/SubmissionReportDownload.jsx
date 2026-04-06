@@ -106,7 +106,7 @@ const handleDownloadPdf = ({ prediction }) => {
 function SubmissionReportDownload({ prediction }) {
   return (
     <Button
-      variations="primary"
+      variation="download"
       size="large"
       onClick={() => handleDownloadPdf({ prediction })}
     >
