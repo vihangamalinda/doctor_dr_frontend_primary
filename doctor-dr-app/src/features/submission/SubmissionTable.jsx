@@ -2,6 +2,9 @@ import styled from "styled-components";
 import SubmissionRow from "./SubmissionRow";
 import Spinner from "../../ui/secondary-ui/Spinner.jsx";
 import { useSubmissionByUserProfileId } from "./hooks/useSubmissionsByUserProfileId.js";
+import { useSearchParams } from "react-router-dom";
+import { DISEASE_STAGE_FILTER,getFilteredSubmission } from "./filters/SubmissionsByDiseaseStageFilter.js";
+import { getSortedSubmissions,SORT_BY_FILTER } from "./filters/SubmissionsSortByFilter.js";
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -29,10 +32,27 @@ const TableHeader = styled.header`
 
 const userProfileId = 6;
 
+const getSubmission =(submissions,filteredValue,sortByValue)=>{
+  const filteredSubmission =getFilteredSubmission(submissions,filteredValue);
+  const sortedSubmissions= getSortedSubmissions(filteredSubmission,sortByValue);
+  return sortedSubmissions;
+}
+
 function SubmissionTable() {
   const { submissionsByUserProfileId, isSubmissionsLoading } =
     useSubmissionByUserProfileId(userProfileId);
+  const [searchParams] =useSearchParams();
+
   if (isSubmissionsLoading) return <Spinner />;
+
+  
+  const diseaseStageFilteredValue= searchParams.get(DISEASE_STAGE_FILTER) ;
+  const sortByFilteredValue =searchParams.get(SORT_BY_FILTER);
+
+  const submissions=getSubmission(submissionsByUserProfileId,diseaseStageFilteredValue,sortByFilteredValue);
+
+  
+
 
   return (
     <Table>
@@ -45,7 +65,7 @@ function SubmissionTable() {
         <div></div>
       </TableHeader>
 
-      {submissionsByUserProfileId.map((submission) => (
+      {submissions.map((submission) => (
         <SubmissionRow
           submissionData={submission}
           key={submission.submissionId}
