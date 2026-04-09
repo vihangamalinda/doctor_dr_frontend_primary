@@ -11,6 +11,8 @@ import {
   getSortedSubmissions,
   SORT_BY_FILTER,
 } from "./filters/SubmissionsSortByFilter.js";
+import { useSelector } from "react-redux";
+import {selectCurrentLoggedUserProfileId} from "../authentication/store/selectors/CurrentLoggedUserSelectors.js";
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -36,8 +38,6 @@ const TableHeader = styled.header`
   padding: 1.6rem 2.4rem;
 `;
 
-const userProfileId = 6;
-
 const getSubmission = (submissions, filteredValue, sortByValue) => {
   const filteredSubmission = getFilteredSubmission(submissions, filteredValue);
   const sortedSubmissions = getSortedSubmissions(
@@ -48,8 +48,9 @@ const getSubmission = (submissions, filteredValue, sortByValue) => {
 };
 
 function SubmissionTable() {
+  const currentLoggedUserProfileId = useSelector(selectCurrentLoggedUserProfileId);
   const { submissionsByUserProfileId, isSubmissionsLoading } =
-    useSubmissionByUserProfileId(userProfileId);
+    useSubmissionByUserProfileId(currentLoggedUserProfileId);
   const [searchParams] = useSearchParams();
 
   if (isSubmissionsLoading) return <Spinner />;

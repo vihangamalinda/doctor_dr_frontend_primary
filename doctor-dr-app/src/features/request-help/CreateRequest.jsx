@@ -6,6 +6,8 @@ import Button from "../../ui/secondary-ui/Button";
 import styled from "styled-components";
 import CustomFormRow from "../../ui/secondary-ui/CustomFormRow.jsx";
 import { useCreateRequestHelp } from "./hooks/useCreateRequestHelp.js";
+import {selectCurrentLoggedUserProfileId} from "../authentication/store/selectors/CurrentLoggedUserSelectors.js"
+import { useSelector } from "react-redux";
 
 const createLocalDateTime = () => {
   const now = new Date();
@@ -32,16 +34,16 @@ const createRequestedHelpData = (data, createdUserProfileId) => {
   };
 };
 function CreateRquest() {
+  const currentLoggedInUserProfileId=useSelector(selectCurrentLoggedUserProfileId);
   const { createRequestHelp, isCreating } = useCreateRequestHelp();
   const { register, handleSubmit, formState } = useForm();
   const { errors } = formState;
   console.log("formstate error", errors);
 
   function onSubmit(data) {
-    const createdUserProfileId = 6;
     const requestedHelpData = createRequestedHelpData(
       data,
-      createdUserProfileId,
+      currentLoggedInUserProfileId,
     );
     console.log("data", data);
     createRequestHelp(requestedHelpData);
