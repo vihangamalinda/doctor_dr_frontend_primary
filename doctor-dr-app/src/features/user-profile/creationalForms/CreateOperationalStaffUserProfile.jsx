@@ -2,7 +2,7 @@ import { useForm, FormProvider } from "react-hook-form";
 import Form from "../../../ui/secondary-ui/Form.jsx";
 import CustomFormRow from "../../../ui/secondary-ui/CustomFormRow.jsx";
 import Button from "../../../ui/secondary-ui/Button.jsx";
-import Selector from "../../../ui/secondary-ui/Selector.jsx";
+import SelectorWithinForm from "../../../ui/secondary-ui/SelectorWithinForm.jsx";
 import UserProfilePersonalInformationForm from "./UserProfilePersonalInformationForm.jsx";
 import { createLocalDateTime } from "../../shared/DateTimeHelper.js";
 import { useInternalSystemHospital } from "../../../hooks/useInternalSystemHospital.js";
@@ -39,11 +39,11 @@ function CreateOperationalStaffUserProfile() {
           label="Select Responsible Hospital"
           error={errors?.hospitalId?.message}
         >
-          <Selector
+          <SelectorWithinForm
             identifier="hospitalId"
             optionList={allInternalSystemHospital}
             requiredMessage="Hospital should be selected"
-          ></Selector>
+          ></SelectorWithinForm>
         </CustomFormRow>
         <CustomFormRow>
           <Button variation="primary" size="large" type="submit">
