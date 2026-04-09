@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import Selector from "./Selector";
 
-function SortBy({ sortByFilted,oprions }) {
+function SortBy({ sortByFilted, oprions }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const sortBy = searchParams.get(sortByFilted) || "";
 

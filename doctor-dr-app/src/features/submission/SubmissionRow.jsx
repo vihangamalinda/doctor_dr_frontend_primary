@@ -60,7 +60,11 @@ function SubmissionRow({ submissionData }) {
       <div>{createdDateTime}</div>
       <HasDisease>{diseaseContain}</HasDisease>
       <DiseaseStageName>{name}</DiseaseStageName>
-      <Button variation="danger" onClick={() => deleteBtId(submissionId)} disabled={isDeleting}>
+      <Button
+        variation="danger"
+        onClick={() => deleteBtId(submissionId)}
+        disabled={isDeleting}
+      >
         Delete
       </Button>
     </TableRow>
