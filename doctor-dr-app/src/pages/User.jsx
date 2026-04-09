@@ -5,7 +5,7 @@ function User() {
   return (
     <>
       <Heading as="h1"> User details</Heading>
-      <DisplayCurrentUserProfileInfromation/>
+      <DisplayCurrentUserProfileInfromation />
     </>
   );
 }

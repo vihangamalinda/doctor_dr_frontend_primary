@@ -8,7 +8,7 @@ import { useCreateSubmission } from "./hooks/useCreateSubmission.js";
 import { useState } from "react";
 import SubmissionPredictionResult from "./SubmissionPredictionResult.jsx";
 import { useSelector } from "react-redux";
-import {selectCurrentLoggedUserProfileId} from "../authentication/store/selectors/CurrentLoggedUserSelectors.js";
+import { selectCurrentLoggedUserProfileId } from "../authentication/store/selectors/CurrentLoggedUserSelectors.js";
 
 const createLocalDateTime = () => {
   const now = new Date();
@@ -63,7 +63,9 @@ const createSubmmisionData = (patientReferenceId, image, userProfileId) => {
 };
 
 function PerformSubmission() {
-  const currentLoggedInUserProfileId = useSelector(selectCurrentLoggedUserProfileId)
+  const currentLoggedInUserProfileId = useSelector(
+    selectCurrentLoggedUserProfileId,
+  );
   const [submissionResult, setSubmissionResult] = useState(
     dummySubmissionResult,
   );
@@ -77,9 +79,13 @@ function PerformSubmission() {
     setSubmissionResult(null);
   };
 
-  async function onSubmit(data) {  
+  async function onSubmit(data) {
     const { patientReferenceId, image } = data;
-    const submission = createSubmmisionData(patientReferenceId, image, currentLoggedInUserProfileId);
+    const submission = createSubmmisionData(
+      patientReferenceId,
+      image,
+      currentLoggedInUserProfileId,
+    );
 
     const response = await createSubmission(submission);
     setSubmissionResult(response);

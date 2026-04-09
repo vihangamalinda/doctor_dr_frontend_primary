@@ -8,7 +8,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { createReportIssue } from "../../services/apis/apiReportIssue.js";
 import Button from "../../ui/secondary-ui/Button.jsx";
-import {selectCurrentLoggedUserProfileId} from "../authentication/store/selectors/CurrentLoggedUserSelectors.js"
+import { selectCurrentLoggedUserProfileId } from "../authentication/store/selectors/CurrentLoggedUserSelectors.js";
 import { useSelector } from "react-redux";
 
 const createLocalDateTime = () => {
@@ -32,7 +32,9 @@ const createReportedIssueData = (data, userProfileId) => {
 };
 
 function CreateIssue() {
-  const currentLoggedInUserProfileId=useSelector(selectCurrentLoggedUserProfileId);
+  const currentLoggedInUserProfileId = useSelector(
+    selectCurrentLoggedUserProfileId,
+  );
   const { register, handleSubmit } = useForm();
   const quertClient = useQueryClient();
   const { mutate, isLoading } = useMutation({
@@ -48,7 +50,10 @@ function CreateIssue() {
 
   function onSubmit(data) {
     // console.log("data", data);
-    const reportedIssueData = createReportedIssueData(data, currentLoggedInUserProfileId);
+    const reportedIssueData = createReportedIssueData(
+      data,
+      currentLoggedInUserProfileId,
+    );
     mutate(reportedIssueData);
   }
 
@@ -70,7 +75,12 @@ function CreateIssue() {
         />
       </FormRow>
       <FormRow>
-        <Button variation="primary" size="large" type="submit" disabled={isLoading}>
+        <Button
+          variation="primary"
+          size="large"
+          type="submit"
+          disabled={isLoading}
+        >
           Submit
         </Button>
       </FormRow>
