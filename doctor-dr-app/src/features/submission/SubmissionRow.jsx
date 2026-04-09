@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "../../ui/secondary-ui/Button";
 
 const TableRow = styled.div`
   display: grid;
@@ -59,9 +60,9 @@ function SubmissionRow({ submissionData }) {
       <div>{createdDateTime}</div>
       <HasDisease>{diseaseContain}</HasDisease>
       <DiseaseStageName>{name}</DiseaseStageName>
-      <button onClick={() => deleteBtId(submissionId)} disabled={isDeleting}>
+      <Button variation="danger" onClick={() => deleteBtId(submissionId)} disabled={isDeleting}>
         Delete
-      </button>
+      </Button>
     </TableRow>
   );
 }
