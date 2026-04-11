@@ -37,18 +37,19 @@ function CreateRquest() {
   const currentLoggedInUserProfileId = useSelector(
     selectCurrentLoggedUserProfileId,
   );
+
+  const { register, handleSubmit, formState,reset  } = useForm();
   const { createRequestHelp, isCreating } = useCreateRequestHelp();
-  const { register, handleSubmit, formState } = useForm();
   const { errors } = formState;
-  console.log("formstate error", errors);
 
   function onSubmit(data) {
     const requestedHelpData = createRequestedHelpData(
       data,
       currentLoggedInUserProfileId,
     );
-    console.log("data", data);
+    // console.log("data", data);
     createRequestHelp(requestedHelpData);
+    reset();
   }
 
   function onError(err) {
