@@ -10,6 +10,7 @@ import { createReportIssue } from "../../services/apis/apiReportIssue.js";
 import Button from "../../ui/secondary-ui/Button.jsx";
 import { selectCurrentLoggedUserProfileId } from "../authentication/store/selectors/CurrentLoggedUserSelectors.js";
 import { useSelector } from "react-redux";
+import { useCreateReportIssue } from "./hooks/useCreateReportIssue.js";
 
 const createLocalDateTime = () => {
   const now = new Date();
@@ -35,18 +36,8 @@ function CreateIssue() {
   const currentLoggedInUserProfileId = useSelector(
     selectCurrentLoggedUserProfileId,
   );
-  const { register, handleSubmit } = useForm();
-  const quertClient = useQueryClient();
-  const { mutate, isLoading } = useMutation({
-    mutationFn: createReportIssue,
-    onSuccess: () => {
-      toast.success("Create an issue");
-      quertClient.invalidateQueries({ queryKey: ["reported-issues"] });
-    },
-    onError: (err) => {
-      toast.error(err);
-    },
-  });
+  const { register, handleSubmit,reset } = useForm();
+  const {createReportIssue,isCreating} = useCreateReportIssue();
 
   function onSubmit(data) {
     // console.log("data", data);
@@ -54,7 +45,8 @@ function CreateIssue() {
       data,
       currentLoggedInUserProfileId,
     );
-    mutate(reportedIssueData);
+    createReportIssue(reportedIssueData);
+    reset();
   }
 
   return (
@@ -79,7 +71,7 @@ function CreateIssue() {
           variation="primary"
           size="large"
           type="submit"
-          disabled={isLoading}
+          disabled={isCreating}
         >
           Submit
         </Button>
