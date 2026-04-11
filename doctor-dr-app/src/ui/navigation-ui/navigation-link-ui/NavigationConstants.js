@@ -1,0 +1,29 @@
+const TO_DASHBOARD_PAGE = "/dashboard";
+const TO_DIAGNOSIS_PAGE = "/diagnosis";
+const TO_SUBMISSIONS_PAGE = "/submissions";
+const TO_REPORT_ISSUE_PAGE = "/report-issue";
+const TO_REQUEST_HELP_PAGE = "/request-helper";
+const TO_USER_PROFILE_PAGE = "/user";
+const TO_SETTINGS_PAGE = "/settings";
+const TO_PREVIEW_REPORTED_ISSUES_PAGE = "/preview-reported-issues";
+const TO_REGISTERED_USER_PROFILES_PAGE = "/registered-user-profiles";
+const TO_OPERTATIONAL_STAFF_USER_PROFILES_PAGE =
+  "/operational-staff-user-profiles";
+const TO_ADD_COMMON_USER_PROFILE_PAGE = "/add-common-user-profile";
+const TO_ADD_OPERATIONAL_STAFF_USER_PROFILE_PAGE =
+  "/add-operational-staff-user-profile";
+
+export {
+  TO_DASHBOARD_PAGE,
+  TO_DIAGNOSIS_PAGE,
+  TO_SUBMISSIONS_PAGE,
+  TO_REPORT_ISSUE_PAGE,
+  TO_REQUEST_HELP_PAGE,
+  TO_USER_PROFILE_PAGE,
+  TO_SETTINGS_PAGE,
+  TO_PREVIEW_REPORTED_ISSUES_PAGE,
+  TO_REGISTERED_USER_PROFILES_PAGE,
+  TO_OPERTATIONAL_STAFF_USER_PROFILES_PAGE,
+  TO_ADD_COMMON_USER_PROFILE_PAGE,
+  TO_ADD_OPERATIONAL_STAFF_USER_PROFILE_PAGE,
+};
