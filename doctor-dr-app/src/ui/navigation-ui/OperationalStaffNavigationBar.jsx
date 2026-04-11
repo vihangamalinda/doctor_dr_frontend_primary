@@ -1,4 +1,4 @@
-function OperationalStafffNavigationBar(){
-    return <p>Operational Staff</p>
+function OperationalStafffNavigationBar() {
+  return <p>Operational Staff</p>;
 }
 export default OperationalStafffNavigationBar;

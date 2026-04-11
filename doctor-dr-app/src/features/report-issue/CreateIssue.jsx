@@ -36,8 +36,8 @@ function CreateIssue() {
   const currentLoggedInUserProfileId = useSelector(
     selectCurrentLoggedUserProfileId,
   );
-  const { register, handleSubmit,reset } = useForm();
-  const {createReportIssue,isCreating} = useCreateReportIssue();
+  const { register, handleSubmit, reset } = useForm();
+  const { createReportIssue, isCreating } = useCreateReportIssue();
 
   function onSubmit(data) {
     // console.log("data", data);

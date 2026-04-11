@@ -1,6 +1,6 @@
 // import StyledNavLink from "./StyledNavLink";
 import StyledNavList from "./StyledNavList";
-import  {
+import {
   ToAddCommonUserProfile,
   ToAddOperationalStaffUserProfile,
   ToAddReportedIsusse,
@@ -23,7 +23,7 @@ function AdminNavigationBar() {
           {/* <StyledNavLink to="/dashboard">
             <HiMiniHome /> <span>Home</span>
           </StyledNavLink> */}
-          <ToDashboard/>
+          <ToDashboard />
         </li>
         <li>
           {/* <StyledNavLink to="/diagnosis">
@@ -36,7 +36,6 @@ function AdminNavigationBar() {
             <HiMiniChartBarSquare /> <span>Submissions</span>
           </StyledNavLink> */}
           <ToSubmissions />
-
         </li>
         <li>
           {/* <StyledNavLink to="/report-issue">
@@ -49,14 +48,13 @@ function AdminNavigationBar() {
             <HiMiniChatBubbleBottomCenterText /> <span>Helper</span>
           </StyledNavLink> */}
           <ToAddRequestedHelp />
-
         </li>
 
         <li>
           {/* <StyledNavLink to="/user">
             <HiMiniUser /> <span>User</span>
           </StyledNavLink> */}
-          <ToUserProfile/>
+          <ToUserProfile />
         </li>
         <li>
           {/* <StyledNavLink to="/settings">

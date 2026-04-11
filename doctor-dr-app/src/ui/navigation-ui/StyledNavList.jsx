@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 const StyledNavList = styled.ul`
   display: flex;
   flex-direction: column;
