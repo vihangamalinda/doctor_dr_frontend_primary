@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Button from "../../ui/secondary-ui/Button";
+import StyledTag from "../../ui/secondary-ui/StyledTag";
 
 const TableRow = styled.div`
   display: grid;
@@ -39,6 +40,16 @@ const DiseaseStageName = styled.div`
   font-weight: 500;
   color: var(--color-green-700);
 `;
+
+const getDiseaseColourLabels =(diseaseLevel)=>{
+ if( diseaseLevel ===1 || diseaseLevel ===2 ){
+    return "orange";
+  }else if(diseaseLevel >2){
+    return "red";
+  }else{
+    return "green";
+  }
+}
 const deleteBtId = (id) => console.log("submission id deleting darft." + id);
 const diseaseFormatter = (hasDisease) => (hasDisease ? "Yes" : "No");
 
@@ -50,7 +61,7 @@ function SubmissionRow({ submissionData }) {
     hasDisease,
     diseaseStage,
   } = submissionData;
-  const { name } = diseaseStage;
+  const { name,diseaseLevel } = diseaseStage;
   const isDeleting = false;
   const diseaseContain = diseaseFormatter(hasDisease);
   console.log(patientReferenceId);
@@ -59,7 +70,7 @@ function SubmissionRow({ submissionData }) {
       <PatientReferenceId>{patientReferenceId}</PatientReferenceId>
       <div>{createdDateTime}</div>
       <HasDisease>{diseaseContain}</HasDisease>
-      <DiseaseStageName>{name}</DiseaseStageName>
+      <StyledTag colourType={getDiseaseColourLabels(diseaseLevel)}>{name}</StyledTag>
       <Button
         variation="danger"
         onClick={() => deleteBtId(submissionId)}
