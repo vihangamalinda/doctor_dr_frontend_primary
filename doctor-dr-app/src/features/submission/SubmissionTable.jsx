@@ -38,6 +38,7 @@ const TableHeader = styled.header`
   font-weight: 600;
   color: var(--color-grey-600);
   padding: 1.6rem 2.4rem;
+  text-align: center;
 `;
 const EmptytMessage = styled.div`
   display: grid;
@@ -51,6 +52,7 @@ const EmptytMessage = styled.div`
     border-bottom: 1px solid var(--color-grey-100);
   }
 `;
+
 
 const getSubmission = (submissions, filteredValue, sortByValue) => {
   const filteredSubmission = getFilteredSubmission(submissions, filteredValue);
@@ -84,7 +86,7 @@ function SubmissionTable() {
     <Table>
       <TableHeader>
         <div>patient Referance Id</div>
-        <div>createdDate</div>
+        <div>created date</div>
         <div>hase Disease</div>
         <div>diseaseStage</div>
         <div>Discount</div>
