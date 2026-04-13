@@ -33,10 +33,12 @@ const LabelTitleSecondary = styled.label`
   overflow-wrap: break-word;
 `;
 
+const FEEDBACK_HAS_PROVIDED_STATUS_VALUE=1;
+
 function RequestCard({ request }) {
   const { title, description, feedback, contact, status } = request;
 
-  const hasGivenFeedBack = status.id !== 10003;
+  const hasGivenFeedBack = status.value !== FEEDBACK_HAS_PROVIDED_STATUS_VALUE;
 
   return (
     <RequestCardStyle>
