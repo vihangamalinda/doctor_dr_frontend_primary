@@ -1,10 +1,7 @@
 import styled from "styled-components";
-import Label from "../../ui/secondary-ui/Label";
-import Row from "../../ui/secondary-ui/Row";
-import LabelTextArea from "../../ui/request-form-ui/LabelTextArea";
-import LabelPrimary from "../../ui/request-form-ui/LabelPrimary";
-import LabelGroupStyle from "../../ui/request-form-ui/LabelGroupStyle";
 import DisplayFeedback from "./DisplayFeedback";
+import RequestedHelpInformation from "./RequestedHelpInformation";
+
 
 const RequestCardStyle = styled.div`
   display: flex;
@@ -43,14 +40,11 @@ function RequestCard({ request }) {
 
   return (
     <RequestCardStyle>
-      <HeadingGrouping>
-        <LabelTitlePrimary>Title :</LabelTitlePrimary>
-        <LabelTitleSecondary>{title}</LabelTitleSecondary>
-      </HeadingGrouping>
-      <LabelGroupStyle>
-        <LabelPrimary>Description</LabelPrimary>
-        <LabelTextArea>{description}</LabelTextArea>
-      </LabelGroupStyle>
+      <RequestedHelpInformation 
+      title={title} 
+      description={description} 
+      status={status} 
+      />
       {hasGivenFeedBack && (
         <DisplayFeedback feedback={feedback} contact={contact} />
       )}
