@@ -2,26 +2,31 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-// import './App.css'
-import GlobalStyles from "./styles/GlobalStyle";
-import AppLayout from "./ui/AppLayout";
-import Submissions from "./pages/Submissions";
-import DashBoard from "./pages/DashBoard";
-import Diagnosis from "./pages/Diagnosis";
-import ReportIssue from "./pages/ReportIssue";
-import Settings from "./pages/Settings";
-import User from "./pages/User";
-import Request from "./pages/Request";
-import Login from "./pages/Login";
-import PageNotFound from "./pages/PageNotFound";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
-import PreviewReportedIssues from "./pages/PreviewReportedIssues";
-import RegisteredUsers from "./pages/RegisteredUsers";
-import OperationalStaff from "./pages/OperationalStaff";
-import AddCommonUserProfile from "./pages/AddCommonUserProfile";
-import AddOperationalStaff from "./pages/AddOperationalStaff";
+
+
+// import './App.css'
+import GlobalStyles from "./styles/GlobalStyle";
+import AppLayout from "./ui/AppLayout";
+import {
+  Submissions,
+  DashBoard,
+  Diagnosis,
+  ReportIssue,
+  Settings,
+  User,
+  Request,
+  Login,
+  PageNotFound,
+  PreviewReportedIssues,
+  RegisteredUsers,
+  OperationalStaff,
+  AddCommonUserProfile,
+  AddOperationalStaff,
+  ReviewRequestedHelps,
+} from "./pages/index.js";
 import ProtectedRoute from "./ui/ProtecctedRoute";
 
 const queryClient = new QueryClient({
@@ -92,6 +97,10 @@ function App() {
             <Route
               path="add-operational-staff-user-profile"
               element={<AddOperationalStaff />}
+            />
+            <Route
+              path="review-requested-helps"
+              element={< ReviewRequestedHelps/>}
             />
           </Route>
           <Route path="login" element={<Login />} />
