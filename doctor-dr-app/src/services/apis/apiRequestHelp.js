@@ -37,10 +37,17 @@ const getRequestedHelpsByCreatedUserProfileId = async (id) => {
   );
 };
 
+const getRequestedHelpsByStatusValue = async (statusValue)=>{
+  return await getData(
+    REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_GET_BY_STATUS_VALUE(statusValue),
+  );
+}
+
 export {
   getAllRequestHelp,
   getRequestHelpById,
   createRequestHelp,
   deleteRequestHelpById,
   getRequestedHelpsByCreatedUserProfileId,
+  getRequestedHelpsByStatusValue,
 };
