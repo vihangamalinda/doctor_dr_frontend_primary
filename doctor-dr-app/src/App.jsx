@@ -12,7 +12,7 @@ import GlobalStyles from "./styles/GlobalStyle";
 import AppLayout from "./ui/AppLayout";
 import {
   Submissions,
-  DashBoard,
+  Dashboard,
   Diagnosis,
   ReportIssue,
   Settings,
@@ -71,7 +71,7 @@ function App() {
             }
           >
             <Route index element={<Navigate replace to="dashboard" />} />
-            <Route path="dashboard" element={<DashBoard />} />
+            <Route path="dashboard" element={<Dashboard />} />
             <Route path="submissions" element={<Submissions />} />
             <Route path="diagnosis" element={<Diagnosis />} />
             <Route path="report-issue" element={<ReportIssue />} />
