@@ -1,5 +1,6 @@
 import { getAllSubmissionsByUserProfileId as getAllSubmissionsByUserProfileIdApi } from "../../../services/apis/apiSubmission.js";
 import { useQuery } from "@tanstack/react-query";
+import {SUBMISSION_BY_USER_PROFILE_ID} from "./queryKeys.js";
 
 export function useSubmissionByUserProfileId(userProfileId) {
   const {
@@ -7,7 +8,7 @@ export function useSubmissionByUserProfileId(userProfileId) {
     isLoading: isSubmissionsLoading,
     error,
   } = useQuery({
-    queryKey: ["submissions"],
+    queryKey: SUBMISSION_BY_USER_PROFILE_ID(userProfileId),
     queryFn: () => getAllSubmissionsByUserProfileIdApi(userProfileId),
   });
 

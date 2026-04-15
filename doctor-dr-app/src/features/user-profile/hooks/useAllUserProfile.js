@@ -1,5 +1,6 @@
 import { getAllUserProfile } from "../../../services/apis/apiUserProfile";
 import { useQuery } from "@tanstack/react-query";
+import {GET_ALL_USER_PROFILES} from "./queryKeys.js";
 
 export function useAllUserProfile() {
   const {
@@ -7,7 +8,7 @@ export function useAllUserProfile() {
     isLoading: isAllUserProfileLoading,
     error,
   } = useQuery({
-    queryKey: ["all-user-profile"],
+    queryKey: GET_ALL_USER_PROFILES,
     queryFn: () => getAllUserProfile(),
   });
   return {
