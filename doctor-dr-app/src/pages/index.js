@@ -13,6 +13,7 @@ import ReviewRequestedHelps from "./ReviewRequestedHelps";
 import Settings from "./Settings";
 import Submissions from "./Submissions";
 import User from "./User";
+import DetailRequestedHelp from "./DetailRequestedHelp";
 
 export {
     AddCommonUserProfile,
@@ -30,4 +31,5 @@ export {
     Settings,
     Submissions,
     User,
+    DetailRequestedHelp,
 }
