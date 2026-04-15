@@ -26,6 +26,7 @@ import {
   AddCommonUserProfile,
   AddOperationalStaff,
   ReviewRequestedHelps,
+  DetailRequestedHelp,
 } from "./pages/index.js";
 import ProtectedRoute from "./ui/ProtecctedRoute";
 
@@ -101,6 +102,10 @@ function App() {
             <Route
               path="review-requested-helps"
               element={< ReviewRequestedHelps/>}
+            />
+              <Route
+              path="/requested-help/information/:requestedHelpId"
+              element={< DetailRequestedHelp/>}
             />
           </Route>
           <Route path="login" element={<Login />} />
