@@ -10,6 +10,7 @@ import ToReportedIsusses from "./ToReportedIssues";
 import ToSettings from "./ToSettings";
 import ToSubmissions from "./ToSubmissions";
 import ToUserProfile from "./ToUserProfile";
+import ToReviewRequestedHelps from "./ToReviewRequestedHelps";
 
 export {
   ToAddCommonUserProfile,
@@ -24,4 +25,5 @@ export {
   ToSettings,
   ToSubmissions,
   ToUserProfile,
+  ToReviewRequestedHelps,
 };
