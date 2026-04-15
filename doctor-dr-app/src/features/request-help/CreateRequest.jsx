@@ -72,6 +72,7 @@ function CreateRquest() {
       <CustomFormRow
         label="Explain the situation"
         error={errors?.description?.message}
+        isVerticalView={true}
       >
         <Textarea
           type="text"
