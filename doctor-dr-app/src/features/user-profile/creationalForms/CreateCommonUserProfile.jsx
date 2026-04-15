@@ -41,6 +41,7 @@ function CreateCommonUserProfile() {
             identifier="hospitalId"
             optionList={allRegularHospital}
             requiredMessage="Hospital should be selected"
+            displayMessage="Select Hospital"
           ></SelectorWithinForm>
         </CustomFormRow>
         <CustomFormRow>

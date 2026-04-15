@@ -16,15 +16,15 @@ const SelectorStyled = styled.select`
   cursor: pointer;
 `;
 
-function SelectorWithinForm({ identifier, requiredMessage, optionList }) {
+function SelectorWithinForm({ identifier, requiredMessage, optionList ,displayMessage}) {
   const { register, formState } = useFormContext();
   const { errors } = formState;
 
   return (
     <SelectorStyled {...register(identifier, { required: requiredMessage })}>
-      <option value="">Select Hospital</option>
+      <option value="">{displayMessage}</option>
       {optionList.map((option) => (
-        <option key={option.id} value={option.name}>
+        <option key={option.id} value={option.id}>
           {option.name}
         </option>
       ))}

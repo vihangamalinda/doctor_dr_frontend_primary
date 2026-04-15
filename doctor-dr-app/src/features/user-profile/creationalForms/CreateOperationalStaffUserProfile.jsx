@@ -43,6 +43,7 @@ function CreateOperationalStaffUserProfile() {
             identifier="hospitalId"
             optionList={allInternalSystemHospital}
             requiredMessage="Hospital should be selected"
+            displayMessage="Select Hospital"
           ></SelectorWithinForm>
         </CustomFormRow>
         <CustomFormRow>
