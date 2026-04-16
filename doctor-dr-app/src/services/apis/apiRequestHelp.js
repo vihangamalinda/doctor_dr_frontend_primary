@@ -43,6 +43,16 @@ const getRequestedHelpsByStatusValue = async (statusValue)=>{
   );
 }
 
+const addFeedbackByRequestedHelpId =async ({id,feedbackInfor})=>{
+  console.log(id,feedbackInfor);
+  debugger;
+  const data ={
+    url: REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_ADD_FEEDBACK(id),
+    obj:feedbackInfor,
+  }
+  return await updateData(data);
+}
+
 export {
   getAllRequestHelp,
   getRequestHelpById,
@@ -50,4 +60,5 @@ export {
   deleteRequestHelpById,
   getRequestedHelpsByCreatedUserProfileId,
   getRequestedHelpsByStatusValue,
+  addFeedbackByRequestedHelpId,
 };
