@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
 
-
 // import './App.css'
 import GlobalStyles from "./styles/GlobalStyle";
 import AppLayout from "./ui/AppLayout";
@@ -101,11 +100,11 @@ function App() {
             />
             <Route
               path="review-requested-helps"
-              element={< ReviewRequestedHelps/>}
+              element={<ReviewRequestedHelps />}
             />
-              <Route
+            <Route
               path="/requested-help/information/:requestedHelpId"
-              element={< DetailRequestedHelp/>}
+              element={<DetailRequestedHelp />}
             />
           </Route>
           <Route path="login" element={<Login />} />

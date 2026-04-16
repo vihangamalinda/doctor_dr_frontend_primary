@@ -1,5 +1,3 @@
-const MAIN_KEYS= ["currentLoggedUser"];
+const MAIN_KEYS = ["currentLoggedUser"];
 
-export {
-    MAIN_KEYS,
-}
+export { MAIN_KEYS };

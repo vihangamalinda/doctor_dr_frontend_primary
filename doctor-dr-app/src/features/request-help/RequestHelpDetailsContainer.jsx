@@ -11,7 +11,7 @@ import DisplayFeedback from "./DisplayFeedback";
 import Row from "../../ui/secondary-ui/Row";
 import Button from "../../ui/secondary-ui/Button";
 import { HiMiniArrowSmallLeft } from "react-icons/hi2";
-import {useMoveBack} from "../../hooks/useMoveBack.js"
+import { useMoveBack } from "../../hooks/useMoveBack.js";
 
 const RequestCardStyle = styled.div`
   display: flex;
@@ -37,15 +37,17 @@ function RequestHelpDetailsContainer() {
     requestedHelpById;
   const { name: statusName, value: statusValue } = status;
   const hasFeedBack = statusValue !== 1;
-  
 
   // if(true) return <>p</>;
 
   return (
     <>
-    <Row>
-      <Button variation="primary" size="large" onClick={()=>moveBack()}> <HiMiniArrowSmallLeft/> back </Button>
-    </Row>
+      <Row>
+        <Button variation="primary" size="large" onClick={() => moveBack()}>
+          {" "}
+          <HiMiniArrowSmallLeft /> back{" "}
+        </Button>
+      </Row>
       <RequestCardStyle>
         <RequestHelpDetailsInformation requestedHelp={requestedHelpById} />
         {hasFeedBack && (

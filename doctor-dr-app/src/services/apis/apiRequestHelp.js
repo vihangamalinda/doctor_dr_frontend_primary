@@ -37,21 +37,21 @@ const getRequestedHelpsByCreatedUserProfileId = async (id) => {
   );
 };
 
-const getRequestedHelpsByStatusValue = async (statusValue)=>{
+const getRequestedHelpsByStatusValue = async (statusValue) => {
   return await getData(
     REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_GET_BY_STATUS_VALUE(statusValue),
   );
-}
+};
 
-const addFeedbackByRequestedHelpId =async ({id,feedbackInfor})=>{
-  console.log(id,feedbackInfor);
+const addFeedbackByRequestedHelpId = async ({ id, feedbackInfor }) => {
+  console.log(id, feedbackInfor);
   debugger;
-  const data ={
+  const data = {
     url: REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_ADD_FEEDBACK(id),
-    obj:feedbackInfor,
-  }
+    obj: feedbackInfor,
+  };
   return await updateData(data);
-}
+};
 
 export {
   getAllRequestHelp,

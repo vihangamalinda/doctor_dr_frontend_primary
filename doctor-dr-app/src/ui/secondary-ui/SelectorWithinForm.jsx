@@ -16,7 +16,12 @@ const SelectorStyled = styled.select`
   cursor: pointer;
 `;
 
-function SelectorWithinForm({ identifier, requiredMessage, optionList ,displayMessage}) {
+function SelectorWithinForm({
+  identifier,
+  requiredMessage,
+  optionList,
+  displayMessage,
+}) {
   const { register, formState } = useFormContext();
   const { errors } = formState;
 

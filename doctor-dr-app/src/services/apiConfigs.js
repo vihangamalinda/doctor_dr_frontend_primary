@@ -9,7 +9,7 @@ const DISEASE_STAGE = BASE_URL + `/disease-stage`;
 const REPORT_ISSUE = BASE_URL + `/reported-issue`;
 const REQUEST_HELP = BASE_URL + `/requested-helper`;
 const USER_CREDENTIALS = BASE_URL + `/user-credential`;
-const CONTACTS = BASE_URL+ `/contact`;
+const CONTACTS = BASE_URL + `/contact`;
 
 const PERFORM_CREATE = `/create`;
 const PERFORM_GET_ALL = `/all`;
@@ -27,7 +27,8 @@ const PERFORM_GET_ALL_BY_USER_NAMES = `/user-names/all`;
 const PERFORM_GET_CURRENT_LOGGED_USER = `/get-current-logged-in-user`;
 const PERFORM_GET_BY_STATUS_VALUE = (statusValue) =>
   `/status-value/${statusValue}`;
-const PERFORM_ADD_FEED_BACK = (requestHelpId) =>`/add-feed-back/${requestHelpId}`;
+const PERFORM_ADD_FEED_BACK = (requestHelpId) =>
+  `/add-feed-back/${requestHelpId}`;
 /*
     Report-issue APIs
 */
@@ -204,9 +205,9 @@ const USER_CREDENTIALS_API_URLs = {
   USER_CREDENTIALS_PERFORM_GET_CURRENT_LOGGED_USER,
 };
 
-const CONTACTS_API_URLs ={
+const CONTACTS_API_URLs = {
   CONTACTS_PERFORM_GET_ALL,
-}
+};
 
 export {
   SUBMISSION_API_URLs,

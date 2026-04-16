@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createReportIssue as createReportIssueApi } from "../../../services/apis/apiReportIssue.js";
 import toast from "react-hot-toast";
-import {MAIN_KEY_LIST} from "./queryKeys.js";
+import { MAIN_KEY_LIST } from "./queryKeys.js";
 
 export function useCreateReportIssue() {
   const quertClient = useQueryClient();

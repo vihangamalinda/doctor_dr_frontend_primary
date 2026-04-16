@@ -12,7 +12,7 @@ const TO_OPERTATIONAL_STAFF_USER_PROFILES_PAGE =
 const TO_ADD_COMMON_USER_PROFILE_PAGE = "/add-common-user-profile";
 const TO_ADD_OPERATIONAL_STAFF_USER_PROFILE_PAGE =
   "/add-operational-staff-user-profile";
-const TO_REVIEW_REQUESTED_HELPS ="/review-requested-helps";
+const TO_REVIEW_REQUESTED_HELPS = "/review-requested-helps";
 
 export {
   TO_DASHBOARD_PAGE,

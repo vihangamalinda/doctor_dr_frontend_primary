@@ -2,7 +2,6 @@ import styled from "styled-components";
 import DisplayFeedback from "./DisplayFeedback";
 import RequestedHelpInformation from "./RequestedHelpInformation";
 
-
 const RequestCardStyle = styled.div`
   display: flex;
   flex-direction: column;
@@ -33,7 +32,7 @@ const LabelTitleSecondary = styled.label`
   overflow-wrap: break-word;
 `;
 
-const FEEDBACK_HAS_PROVIDED_STATUS_VALUE=1;
+const FEEDBACK_HAS_PROVIDED_STATUS_VALUE = 1;
 
 function RequestCard({ request }) {
   const { title, description, feedback, contact, status } = request;
@@ -42,10 +41,10 @@ function RequestCard({ request }) {
 
   return (
     <RequestCardStyle>
-      <RequestedHelpInformation 
-      title={title} 
-      description={description} 
-      status={status} 
+      <RequestedHelpInformation
+        title={title}
+        description={description}
+        status={status}
       />
       {hasGivenFeedBack && (
         <DisplayFeedback feedback={feedback} contact={contact} />

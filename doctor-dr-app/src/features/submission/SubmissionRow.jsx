@@ -19,7 +19,7 @@ const PatientReferenceId = styled.div`
   font-weight: 600;
   color: var(--color-grey-600);
   font-family: "Sono";
-   text-align: center;
+  text-align: center;
 `;
 
 const HasDisease = styled.div`
@@ -34,15 +34,15 @@ const DiseaseStageName = styled.div`
   color: var(--color-green-700);
 `;
 
-const getDiseaseColourLabels =(diseaseLevel)=>{
- if( diseaseLevel ===1 || diseaseLevel ===2 ){
+const getDiseaseColourLabels = (diseaseLevel) => {
+  if (diseaseLevel === 1 || diseaseLevel === 2) {
     return "orange";
-  }else if(diseaseLevel >2){
+  } else if (diseaseLevel > 2) {
     return "red";
-  }else{
+  } else {
     return "green";
   }
-}
+};
 const deleteBtId = (id) => console.log("submission id deleting darft." + id);
 const diseaseFormatter = (hasDisease) => (hasDisease ? "Yes" : "No");
 
@@ -54,7 +54,7 @@ function SubmissionRow({ submissionData }) {
     hasDisease,
     diseaseStage,
   } = submissionData;
-  const { name,diseaseLevel } = diseaseStage;
+  const { name, diseaseLevel } = diseaseStage;
   const isDeleting = false;
   const diseaseContain = diseaseFormatter(hasDisease);
   console.log(patientReferenceId);
@@ -63,7 +63,9 @@ function SubmissionRow({ submissionData }) {
       <PatientReferenceId>{patientReferenceId}</PatientReferenceId>
       <div>{createdDateTime}</div>
       <HasDisease>{diseaseContain}</HasDisease>
-      <StyledTag colourType={getDiseaseColourLabels(diseaseLevel)}>{name}</StyledTag>
+      <StyledTag colourType={getDiseaseColourLabels(diseaseLevel)}>
+        {name}
+      </StyledTag>
       <Button
         variation="danger"
         onClick={() => deleteBtId(submissionId)}

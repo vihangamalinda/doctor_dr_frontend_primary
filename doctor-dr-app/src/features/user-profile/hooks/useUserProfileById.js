@@ -1,6 +1,6 @@
 import { getUserProfileById } from "../../../services/apis/apiUserProfile";
 import { useQuery } from "@tanstack/react-query";
-import {GET_USER_PROFILES_BY_ID} from "./queryKeys.js";
+import { GET_USER_PROFILES_BY_ID } from "./queryKeys.js";
 
 export function useUserProfileById(useProfileId) {
   const {

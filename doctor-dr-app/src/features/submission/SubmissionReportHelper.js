@@ -26,7 +26,7 @@ function createSubmissionReport({ prediction }) {
   } = modelPredictionDetails;
 
   const { id: statusId, name: StatusDefinition } = status;
-  
+
   const doc = new jsPDF();
 
   doc.setFontSize(16);

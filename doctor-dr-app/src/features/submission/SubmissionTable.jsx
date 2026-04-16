@@ -14,7 +14,7 @@ import {
 import { useSelector } from "react-redux";
 import { selectCurrentLoggedUserProfileId } from "../authentication/store/selectors/CurrentLoggedUserSelectors.js";
 
-const isEmptyArray=(arr)=> Array.isArray(arr) && arr.length === 0;
+const isEmptyArray = (arr) => Array.isArray(arr) && arr.length === 0;
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -52,7 +52,6 @@ const EmptytMessage = styled.div`
     border-bottom: 1px solid var(--color-grey-100);
   }
 `;
-
 
 const getSubmission = (submissions, filteredValue, sortByValue) => {
   const filteredSubmission = getFilteredSubmission(submissions, filteredValue);
@@ -93,13 +92,16 @@ function SubmissionTable() {
         <div></div>
       </TableHeader>
 
-      {!isEmptyArray(submissions) && submissions.map((submission) => (
-        <SubmissionRow
-          submissionData={submission}
-          key={submission.submissionId}
-        />
-      ))}
-      {isEmptyArray(submissions) && <EmptytMessage> No submissions has been performed.</EmptytMessage>}
+      {!isEmptyArray(submissions) &&
+        submissions.map((submission) => (
+          <SubmissionRow
+            submissionData={submission}
+            key={submission.submissionId}
+          />
+        ))}
+      {isEmptyArray(submissions) && (
+        <EmptytMessage> No submissions has been performed.</EmptytMessage>
+      )}
     </Table>
   );
 }

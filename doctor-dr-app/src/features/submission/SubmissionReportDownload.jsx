@@ -1,10 +1,10 @@
 import { jsPDF } from "jspdf";
 import Button from "../../ui/secondary-ui/Button";
 import { HiOutlineArrowDownTray } from "react-icons/hi2";
-import {createSubmissionReport} from "./SubmissionReportHelper.js";
+import { createSubmissionReport } from "./SubmissionReportHelper.js";
 
 const handleDownloadPdf = ({ prediction }) => {
-  createSubmissionReport({prediction});
+  createSubmissionReport({ prediction });
 };
 
 function SubmissionReportDownload({ prediction }) {

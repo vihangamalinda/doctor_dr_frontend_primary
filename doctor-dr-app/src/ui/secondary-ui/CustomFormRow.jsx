@@ -8,17 +8,17 @@ const Error = styled.span`
   color: var(--color-red-700);
 `;
 
-// const 
+// const
 
-function CustomFormRow({ label, error, children ,isVerticalView}) {
-  if(isVerticalView){
+function CustomFormRow({ label, error, children, isVerticalView }) {
+  if (isVerticalView) {
     return (
       <Row type="vertical">
-         {label && <Label htmlFor={children.props.id}>{label}</Label>}
-      {children}
-      {error && <Error>{error}</Error>}
+        {label && <Label htmlFor={children.props.id}>{label}</Label>}
+        {children}
+        {error && <Error>{error}</Error>}
       </Row>
-    )
+    );
   }
 
   return (

@@ -33,8 +33,7 @@ function ReviewRequestedHelpsTable() {
   const { requestedHelpsByStatusValue, isRequestedHelpsLoading, error } =
     useRequestedHelpsByStatusValue(statusValueIdentifierMap["withoutFeedback"]);
 
-  if(isRequestedHelpsLoading)
-    return <Spinner/>
+  if (isRequestedHelpsLoading) return <Spinner />;
   return (
     <Table>
       <TableHeader>
@@ -42,7 +41,9 @@ function ReviewRequestedHelpsTable() {
         <div> Requested date</div>
         <div>options</div>
       </TableHeader>
-      {requestedHelpsByStatusValue.map(data=> <ReviewRequestedHelpsRow  requestedAssistance={data}/>)}
+      {requestedHelpsByStatusValue.map((data) => (
+        <ReviewRequestedHelpsRow requestedAssistance={data} />
+      ))}
     </Table>
   );
 }
