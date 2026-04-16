@@ -13,6 +13,7 @@ import {
   ToSettings,
   ToSubmissions,
   ToUserProfile,
+  ToReviewRequestedHelps,
 } from "./navigation-link-ui/index.js";
 
 function AdminNavigationBar() {
@@ -91,6 +92,9 @@ function AdminNavigationBar() {
             <HiCog8Tooth /> <span>Add Operational Staff</span>
           </StyledNavLink> */}
           <ToAddOperationalStaffUserProfile />
+        </li>
+        <li>
+          <ToReviewRequestedHelps />
         </li>
       </StyledNavList>
     </nav>
