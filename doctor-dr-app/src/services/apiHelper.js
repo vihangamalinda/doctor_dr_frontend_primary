@@ -34,7 +34,7 @@ const updateData = async ({ url, obj }) => {
 
     isAuthenticated(response);
     validateResponse(response);
-    return await response.json();
+    // return await response.json();
   } catch (error) {
     console.log("error", error);
     throw new Error("Failed to update data. Please try again later.");
