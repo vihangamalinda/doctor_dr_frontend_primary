@@ -49,7 +49,7 @@ const deleteData = async (url) => {
     });
     isAuthenticated(response);
     validateResponse(response);
-    return await response.json();
+    // return await response.json();
   } catch (error) {
     console.log("error", error);
     throw new Error("Failed to delete data. Please try again later.");
