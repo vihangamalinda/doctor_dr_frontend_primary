@@ -1,6 +1,8 @@
 import Row from "../../ui/secondary-ui/Row";
+import Spinner from "../../ui/secondary-ui/Spinner";
 import { ROLE_CONSTANTS } from "../user-role/helper";
 import { useUserProfilesByUserRoleValue } from "./hooks/useUserProfilesByUserRoleValue";
+import UserProfileCard from "./UserProfileCard";
 
 
 function OperationalStaffUserProfileTable() {
