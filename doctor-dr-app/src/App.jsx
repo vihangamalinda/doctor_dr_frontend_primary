@@ -27,7 +27,7 @@ import {
   ReviewRequestedHelps,
   DetailRequestedHelp,
 } from "./pages/index.js";
-import ProtectedRoute from "./ui/ProtecctedRoute";
+import ProtectedRoute from "./ui/ProtectedRoute.jsx";
 
 const queryClient = new QueryClient({
   defaultOptions: {
