@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import {createUserProfile as createUserProfileApi } from "../../../services/apis/apiUserProfile.js";
+import { createUserProfile as createUserProfileApi } from "../../../services/apis/apiUserProfile.js";
 import toast from "react-hot-toast";
-import {MAIN_KEY} from "./queryKeys.js";
+import { MAIN_KEY } from "./queryKeys.js";
 
 export function useCreateUserProfile() {
   const queryClient = useQueryClient();

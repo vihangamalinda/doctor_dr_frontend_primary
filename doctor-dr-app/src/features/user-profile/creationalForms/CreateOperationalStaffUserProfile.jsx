@@ -14,7 +14,7 @@ import { createData } from "./creationalData.js";
 
 function CreateOperationalStaffUserProfile() {
   const methods = useForm();
-  const { register, handleSubmit, formState ,reset} = methods;
+  const { register, handleSubmit, formState, reset } = methods;
   const { errors } = formState;
 
   const { createUserProfile, isCreating } = useCreateUserProfile();
@@ -29,7 +29,7 @@ function CreateOperationalStaffUserProfile() {
 
   const onSubmit = (formData) => {
     const userRoleId = userRoleByUserRoleValue.id;
-    const data =createData(formData, userRoleId);
+    const data = createData(formData, userRoleId);
     createUserProfile(data);
     reset();
   };
@@ -41,18 +41,18 @@ function CreateOperationalStaffUserProfile() {
 
   return (
     <CreateUserProfileForm onSubmit={onSubmit} onError={onError}>
-       <CustomFormRow
-          label="Select Responsible Hospital"
-          error={errors?.hospitalId?.message}
-        >
-          <SelectorWithinForm
-            identifier="hospitalId"
-            optionList={allInternalSystemHospital}
-            requiredMessage="Hospital should be selected"
-            displayMessage="Select Hospital"
-          ></SelectorWithinForm>
-        </CustomFormRow>
-      </CreateUserProfileForm>
-  )
+      <CustomFormRow
+        label="Select Responsible Hospital"
+        error={errors?.hospitalId?.message}
+      >
+        <SelectorWithinForm
+          identifier="hospitalId"
+          optionList={allInternalSystemHospital}
+          requiredMessage="Hospital should be selected"
+          displayMessage="Select Hospital"
+        ></SelectorWithinForm>
+      </CustomFormRow>
+    </CreateUserProfileForm>
+  );
 }
 export default CreateOperationalStaffUserProfile;
