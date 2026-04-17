@@ -2,6 +2,7 @@ import {
   useAdminRole,
   useOperationalStaffRole,
   useCommonUserRole,
+  ROLE_CONSTANTS,
 } from "./userRoleHelper.js";
 
-export { useAdminRole, useOperationalStaffRole, useCommonUserRole };
+export {ROLE_CONSTANTS, useAdminRole, useOperationalStaffRole, useCommonUserRole };

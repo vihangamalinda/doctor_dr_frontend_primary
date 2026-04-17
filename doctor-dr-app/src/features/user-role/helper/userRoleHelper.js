@@ -36,4 +36,9 @@ const useCommonUserRole = () => {
   };
 };
 
-export { useAdminRole, useOperationalStaffRole, useCommonUserRole };
+export {
+  ROLE_CONSTANTS,
+  useAdminRole,
+  useOperationalStaffRole,
+  useCommonUserRole,
+};
