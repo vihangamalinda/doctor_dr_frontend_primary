@@ -7,35 +7,41 @@ import UserProfilePersonalInformationForm from "./UserProfilePersonalInformation
 import { createLocalDateTime } from "../../shared/DateTimeHelper.js";
 import { useInternalSystemHospital } from "../../../hooks/useInternalSystemHospital.js";
 import Spinner from "../../../ui/secondary-ui/Spinner.jsx";
+import CreateUserProfileForm from "./CreateUserProfileForm.jsx";
+import { useCreateUserProfile } from "../hooks/useCreateUserProfile.js";
+import { useOperationalStaffRole } from "../../user-role/helper/userRoleHelper.js";
+import { createData } from "./creationalData.js";
 
 function CreateOperationalStaffUserProfile() {
   const methods = useForm();
-  const { register, handleSubmit, formState } = methods;
+  const { register, handleSubmit, formState ,reset} = methods;
   const { errors } = formState;
+
+  const { createUserProfile, isCreating } = useCreateUserProfile();
+  const { userRoleByUserRoleValue, isUserRoleLoading, errorOnUserRole } =
+    useOperationalStaffRole();
 
   const {
     allInternalSystemHospital,
     isAllInternalSystemHospitalLoading,
-    error,
+    errorOnInternalSystemHospital,
   } = useInternalSystemHospital();
 
-  const onSubmit = (data) => {
-    const currentDateTime = createLocalDateTime();
-    data.dateTime = currentDateTime;
-    console.log(data);
-    console.log(errors);
+  const onSubmit = (formData) => {
+    const userRoleId = userRoleByUserRoleValue.id;
+    const data =createData(formData, userRoleId);
+    createUserProfile(data);
+    reset();
   };
   const onError = () => {};
 
-  if (isAllInternalSystemHospitalLoading) {
+  if (isAllInternalSystemHospitalLoading || isUserRoleLoading) {
     return <Spinner />;
   }
 
   return (
-    <FormProvider {...methods}>
-      <Form onSubmit={handleSubmit(onSubmit, onError)}>
-        <UserProfilePersonalInformationForm />
-        <CustomFormRow
+    <CreateUserProfileForm onSubmit={onSubmit} onError={onError}>
+       <CustomFormRow
           label="Select Responsible Hospital"
           error={errors?.hospitalId?.message}
         >
@@ -46,13 +52,7 @@ function CreateOperationalStaffUserProfile() {
             displayMessage="Select Hospital"
           ></SelectorWithinForm>
         </CustomFormRow>
-        <CustomFormRow>
-          <Button variation="primary" size="large" type="submit">
-            Submit
-          </Button>
-        </CustomFormRow>
-      </Form>
-    </FormProvider>
-  );
+      </CreateUserProfileForm>
+  )
 }
 export default CreateOperationalStaffUserProfile;
