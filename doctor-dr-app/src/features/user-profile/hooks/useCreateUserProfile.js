@@ -9,7 +9,9 @@ export function useCreateUserProfile() {
     mutationFn: createUserProfileApi,
     onSuccess: () => {
       toast.success("User profile created successfully");
-      queryClient.invalidateQueries({ queryKey: [MAIN_KEY] });
+      queryClient.invalidateQueries({
+        queryKey: MAIN_KEY,
+      });
     },
     onError: (error) => {
       toast.error(error);
