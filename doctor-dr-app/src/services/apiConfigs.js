@@ -10,6 +10,7 @@ const REPORT_ISSUE = BASE_URL + `/reported-issue`;
 const REQUEST_HELP = BASE_URL + `/requested-helper`;
 const USER_CREDENTIALS = BASE_URL + `/user-credential`;
 const CONTACTS = BASE_URL + `/contact`;
+const USER_ROLES = BASE_URL + `/user-role`;
 
 const PERFORM_CREATE = `/create`;
 const PERFORM_GET_ALL = `/all`;
@@ -29,6 +30,9 @@ const PERFORM_GET_BY_STATUS_VALUE = (statusValue) =>
   `/status-value/${statusValue}`;
 const PERFORM_ADD_FEED_BACK = (requestHelpId) =>
   `/add-feed-back/${requestHelpId}`;
+const PERFOM_GET_BY_USER_ROLE_VALUE = (userRoleValue) =>
+  `/user-role-value/${userRoleValue}`;
+
 /*
     Report-issue APIs
 */
@@ -135,6 +139,14 @@ const USER_CREDENTIALS_PERFORM_GET_CURRENT_LOGGED_USER =
 */
 const CONTACTS_PERFORM_GET_ALL = CONTACTS + PERFORM_GET_ALL;
 
+
+/*
+  User-role APIs
+*/
+const USER_ROLES_PERFORM_GET_ALL =USER_ROLES +PERFORM_GET_ALL;
+const USER_ROLES_PERFORM_GET_BY_USER_ROLE_VALUE = (userRoleValue) =>
+  USER_ROLES + PERFOM_GET_BY_USER_ROLE_VALUE(userRoleValue);
+
 const SUBMISSION_API_URLs = {
   SUBMISSION_PERFORM_GET_ALL,
   SUBMISSION_PERFORM_CREATE,
@@ -209,6 +221,11 @@ const CONTACTS_API_URLs = {
   CONTACTS_PERFORM_GET_ALL,
 };
 
+const USER_ROLES_API_URLs={
+  USER_ROLES_PERFORM_GET_ALL,
+  USER_ROLES_PERFORM_GET_BY_USER_ROLE_VALUE,
+}
+
 export {
   SUBMISSION_API_URLs,
   DISEASE_STAGE_API_URLs,
@@ -220,4 +237,5 @@ export {
   REQUEST_HELP_API_URLs,
   USER_CREDENTIALS_API_URLs,
   CONTACTS_API_URLs,
+  USER_ROLES_API_URLs,
 };
