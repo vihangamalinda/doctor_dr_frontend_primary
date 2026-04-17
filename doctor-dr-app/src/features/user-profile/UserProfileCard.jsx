@@ -3,6 +3,7 @@ import LabelGroupStyle from "../../ui/request-form-ui/LabelGroupStyle";
 import Row from "../../ui/secondary-ui/Row";
 import LabelPrimary from "../../ui/request-form-ui/LabelPrimary";
 import Button from "../../ui/secondary-ui/Button";
+import { useDeleteUserProfileById } from "./hooks/useDeleteUserProfileById";
 
 const UserProfileCardStyle = styled.div`
   display: flex;
@@ -36,6 +37,8 @@ function UserProfileCard({ userProfile }) {
   const { firstName, lastName, createdDateTime, modifiedDateTime, hospital } =
     userProfile;
   const { name: hospitalName, emergencyNumber } = hospital;
+  const { deleteUserProfileById, isdeleting } = useDeleteUserProfileById();
+
   return (
     <UserProfileCardStyle>
       <HeadingGrouping>
@@ -65,7 +68,12 @@ function UserProfileCard({ userProfile }) {
         </Row>
       </LabelGroupStyle>
       <Row type="horizontal-end">
-        <Button size="medium" variation="danger">
+        <Button
+          size="medium"
+          variation="danger"
+          disabled={isdeleting}
+          onClick={() => deleteUserProfileById(userProfile.id)}
+        >
           Delete
         </Button>
       </Row>
