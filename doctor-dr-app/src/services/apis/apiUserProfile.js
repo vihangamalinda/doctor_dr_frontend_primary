@@ -11,6 +11,14 @@ const getUserProfileById = async (id) => {
   );
 };
 
+const getAllUserProfilesByUserRoleValue = async (userRoleValue) => {
+  return await getData(
+    USER_PROFILE_API_URLs.USER_PROFILE_PERFORM_GET_ALL_BY_USER_ROLE_VALUE(
+      userRoleValue,
+    ),
+  );
+};
+
 const createUserProfile = async (userProfileObj) => {
   const data = {
     obj: userProfileObj,
@@ -30,4 +38,5 @@ export {
   getUserProfileById,
   createUserProfile,
   deleteUserProfileById,
+  getAllUserProfilesByUserRoleValue,
 };
