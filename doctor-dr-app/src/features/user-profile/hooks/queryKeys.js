@@ -8,4 +8,15 @@ const GET_USER_PROFILES_BY_ID = (userProfileId) => [
   userProfileId,
 ];
 
-export { MAIN_KEY, GET_ALL_USER_PROFILES, GET_USER_PROFILES_BY_ID };
+const GET_USER_PROFILES_BY_USER_ROLE_VALUE = (userRoleValue) => [
+  ...MAIN_KEY,
+  "getAllbyUserRoleValue",
+  userRoleValue,
+];
+
+export {
+  MAIN_KEY,
+  GET_ALL_USER_PROFILES,
+  GET_USER_PROFILES_BY_ID,
+  GET_USER_PROFILES_BY_USER_ROLE_VALUE,
+};
