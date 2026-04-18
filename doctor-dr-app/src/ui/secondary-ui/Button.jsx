@@ -48,7 +48,7 @@ const variations = {
   `,
   download: css`
     color: var(--color-green-100);
-    background-color: var(--color-green-500);
+    background-color: var(--color-green-400);
 
     &:hover {
       background-color: var(--color-green-700);
