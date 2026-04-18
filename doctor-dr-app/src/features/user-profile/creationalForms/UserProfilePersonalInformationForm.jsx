@@ -1,7 +1,8 @@
 import { useFormContext } from "react-hook-form";
 import LocationInformationForm from "./LocationInformationForm.jsx";
-import Input from "../../../ui/secondary-ui/Input.jsx";
-import CustomFormRow from "../../../ui/secondary-ui/CustomFormRow.jsx";
+// import Input from "../../../ui/secondary-ui/Input.jsx";
+// import CustomFormRow from "../../../ui/secondary-ui/CustomFormRow.jsx";
+import { Input, CustomFormRow } from "../../../ui/index.js";
 
 function UserProfilePersonalInformationForm() {
   const { register, formState } = useFormContext();

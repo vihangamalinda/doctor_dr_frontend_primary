@@ -1,6 +1,7 @@
-import Label from "../../ui/secondary-ui/Label";
-import Row from "../../ui/secondary-ui/Row";
+// import Label from "../../ui/secondary-ui/Label";
+// import Row from "../../ui/secondary-ui/Row";
 import LocationInformation from "../location/LocationInformation";
+import { Label, Row } from "../../ui/index.js";
 
 function UserProfileInformation({ user }) {
   const { firstName, lastName, createdDateTime, modifiedDateTime, location } =

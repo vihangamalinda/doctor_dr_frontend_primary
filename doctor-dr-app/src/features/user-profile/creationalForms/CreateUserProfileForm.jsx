@@ -2,8 +2,9 @@ import { FormProvider, useForm } from "react-hook-form";
 import UserProfileAccountInformationForm from "./UserProfileAccountInformationForm";
 import UserProfilePersonalInformationForm from "./UserProfilePersonalInformationForm";
 import CustomFormRow from "../../../ui/secondary-ui/CustomFormRow";
-import Form from "../../../ui/secondary-ui/Form";
-import Button from "../../../ui/secondary-ui/Button";
+// import Form from "../../../ui/secondary-ui/Form";
+// import Button from "../../../ui/secondary-ui/Button";
+import {Form,Button} from "../../../ui/secondary-ui/index.js";
 
 function CreateUserProfileForm({ children, onSubmit, onError, isCreating }) {
   const methods = useForm();

@@ -1,18 +1,26 @@
 import { useForm, FormProvider } from "react-hook-form";
-import Form from "../../../ui/secondary-ui/Form.jsx";
-import CustomFormRow from "../../../ui/secondary-ui/CustomFormRow.jsx";
-import Button from "../../../ui/secondary-ui/Button.jsx";
-import SelectorWithinForm from "../../../ui/secondary-ui/SelectorWithinForm.jsx";
+// import Form from "../../../ui/secondary-ui/Form.jsx";
+// import CustomFormRow from "../../../ui/secondary-ui/CustomFormRow.jsx";
+// import Button from "../../../ui/secondary-ui/Button.jsx";
+// import SelectorWithinForm from "../../../ui/secondary-ui/SelectorWithinForm.jsx";
 import UserProfilePersonalInformationForm from "./UserProfilePersonalInformationForm.jsx";
 import { useRegularHospital } from "../../../hooks/useRegularHospital.js";
-import Spinner from "../../../ui/secondary-ui/Spinner.jsx";
-import Input from "../../../ui/secondary-ui/Input.jsx";
+// import Spinner from "../../../ui/secondary-ui/Spinner.jsx";
+// import Input from "../../../ui/secondary-ui/Input.jsx";
 import UserProfileAccountInformationForm from "./UserProfileAccountInformationForm.jsx";
 import CreateUserProfileForm from "./CreateUserProfileForm.jsx";
 import { useCommonUserRole } from "../../user-role/helper/index.js";
 import { createData } from "./creationalData.js";
 import { useCreateUserProfile } from "../hooks/useCreateUserProfile.js";
 import toast from "react-hot-toast";
+import {
+  Form,
+  CustomFormRow,
+  Button,
+  SelectorWithinForm,
+  Spinner,
+  Input,
+} from "../../../ui/index.js";
 
 function CreateCommonUserProfile() {
   const methods = useForm();

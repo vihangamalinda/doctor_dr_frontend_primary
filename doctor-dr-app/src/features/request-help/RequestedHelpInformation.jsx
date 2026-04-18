@@ -1,7 +1,13 @@
 import styled from "styled-components";
-import LabelTextArea from "../../ui/request-form-ui/LabelTextArea";
-import LabelPrimary from "../../ui/request-form-ui/LabelPrimary";
-import LabelGroupStyle from "../../ui/request-form-ui/LabelGroupStyle";
+// import LabelTextArea from "../../ui/request-form-ui/LabelTextArea";
+// import LabelPrimary from "../../ui/request-form-ui/LabelPrimary";
+// import LabelGroupStyle from "../../ui/request-form-ui/LabelGroupStyle";
+import {
+  LabelTextArea,
+  LabelPrimary,
+  LabelGroupStyle,
+} from "../../ui/index.js";
+
 const HeadingGrouping = styled.div`
   display: flex;
   justify-content: flex-start;

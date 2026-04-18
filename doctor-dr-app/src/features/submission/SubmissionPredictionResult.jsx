@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import CustomFormRow from "../../ui/secondary-ui/CustomFormRow.jsx";
+// import CustomFormRow from "../../ui/secondary-ui/CustomFormRow.jsx";
 import SubmissionClassProbability from "./SubmissionClassProbability.jsx";
-import Button from "../../ui/secondary-ui/Button";
+// import Button from "../../ui/secondary-ui/Button";
 import SubmissionComparisionViewer from "./SubmissionComparisionViewer.jsx";
 import SubmissionReportDownload from "./SubmissionReportDownload.jsx";
-import Row from "../../ui/secondary-ui/Row.jsx";
+// import Row from "../../ui/secondary-ui/Row.jsx";
 import { HiMiniArrowUturnLeft } from "react-icons/hi2";
+import { CustomFormRow, Button, Row } from "../../ui/index.js";
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);

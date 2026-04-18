@@ -1,14 +1,21 @@
 import { useForm, FormProvider } from "react-hook-form";
-import Form from "../../ui/secondary-ui/Form";
-import Input from "../../ui/secondary-ui/Input";
-import Button from "../../ui/secondary-ui/Button";
-import CustomFormRow from "../../ui/secondary-ui/CustomFormRow.jsx";
-import ImageInputFormRow from "../../ui/secondary-ui/ImageInputFormRow.jsx";
+// import Form from "../../ui/secondary-ui/Form";
+// import Input from "../../ui/secondary-ui/Input";
+// import Button from "../../ui/secondary-ui/Button";
+// import CustomFormRow from "../../ui/secondary-ui/CustomFormRow.jsx";
+// import ImageInputFormRow from "../../ui/secondary-ui/ImageInputFormRow.jsx";
 import { useCreateSubmission } from "./hooks/useCreateSubmission.js";
 import { useState } from "react";
 import SubmissionPredictionResult from "./SubmissionPredictionResult.jsx";
 import { useSelector } from "react-redux";
 import { selectCurrentLoggedUserProfileId } from "../authentication/store/selectors/CurrentLoggedUserSelectors.js";
+import {
+  Form,
+  Input,
+  Button,
+  CustomFormRow,
+  ImageInputFormRow,
+} from "../../ui/index.js";
 
 const createLocalDateTime = () => {
   const now = new Date();

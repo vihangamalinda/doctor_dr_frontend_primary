@@ -1,7 +1,8 @@
 import { useFormContext } from "react-hook-form";
-import CustomFormRow from "../../../ui/secondary-ui/CustomFormRow.jsx";
-import Input from "../../../ui/secondary-ui/Input.jsx";
+// import CustomFormRow from "../../../ui/secondary-ui/CustomFormRow.jsx";
+// import Input from "../../../ui/secondary-ui/Input.jsx";
 import styled from "styled-components";
+import { CustomFormRow, Input } from "../../../ui/index.js";
 
 const LabelTitlePrimary = styled.label`
   font-weight: 900;

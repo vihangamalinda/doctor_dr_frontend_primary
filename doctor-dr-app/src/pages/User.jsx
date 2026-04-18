@@ -1,5 +1,6 @@
-import Heading from "../ui/secondary-ui/Heading";
+// import Heading from "../ui/secondary-ui/Heading";
 import DisplayCurrentUserProfileInfromation from "../features/user-profile/DisplayCurrentUserProfileInformation.jsx";
+import {Heading} from "../ui/index.js";
 
 function User() {
   return (

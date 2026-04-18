@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import LabelGroupStyle from "../../ui/request-form-ui/LabelGroupStyle";
-import Row from "../../ui/secondary-ui/Row";
-import LabelPrimary from "../../ui/request-form-ui/LabelPrimary";
-import Button from "../../ui/secondary-ui/Button";
+// import LabelGroupStyle from "../../ui/request-form-ui/LabelGroupStyle";
+// import Row from "../../ui/secondary-ui/Row";
+// import LabelPrimary from "../../ui/request-form-ui/LabelPrimary";
+// import Button from "../../ui/secondary-ui/Button";
 import { useDeleteUserProfileById } from "./hooks/useDeleteUserProfileById";
+import { LabelGroupStyle, Row, LabelPrimary, Button } from "../../ui/index.js";
 
 const UserProfileCardStyle = styled.div`
   display: flex;

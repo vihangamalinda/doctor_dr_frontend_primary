@@ -1,5 +1,6 @@
-import Label from "../../ui/secondary-ui/Label";
-import Row from "../../ui/secondary-ui/Row";
+// import Label from "../../ui/secondary-ui/Label";
+// import Row from "../../ui/secondary-ui/Row";
+import { Label, Row } from "../../ui/index.js";
 
 const getAddress = (location) => {
   const { locationIndex, road, city, country } = location;

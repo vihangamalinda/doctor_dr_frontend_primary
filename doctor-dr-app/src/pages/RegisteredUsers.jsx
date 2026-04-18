@@ -1,5 +1,6 @@
 import CommonUserProfileTable from "../features/user-profile/CommonUserProfileTable.jsx";
-import Heading from "../ui/secondary-ui/Heading";
+// import Heading from "../ui/secondary-ui/Heading";
+import {Heading} from "../ui/index.js";
 
 function RegisteredUsers() {
   return (

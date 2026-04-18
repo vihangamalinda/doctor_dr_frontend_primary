@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { useRequestedHelpsByStatusValue } from "./hooks/useRequestedHelpsByStatusValue";
 import statusValueIdentifierMap from "./StatusValueIdentifier";
 import ReviewRequestedHelpsRow from "./ReviewRequestedHelpsRow";
-import Spinner from "../../ui/secondary-ui/Spinner";
+// import Spinner from "../../ui/secondary-ui/Spinner";
+import {Spinner} from "../../ui/index.js";
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);

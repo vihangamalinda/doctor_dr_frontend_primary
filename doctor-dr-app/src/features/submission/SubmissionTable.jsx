@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import SubmissionRow from "./SubmissionRow";
-import Spinner from "../../ui/secondary-ui/Spinner.jsx";
+// import Spinner from "../../ui/secondary-ui/Spinner.jsx";
 import { useSubmissionByUserProfileId } from "./hooks/useSubmissionsByUserProfileId.js";
 import { useSearchParams } from "react-router-dom";
 import {
@@ -13,6 +13,7 @@ import {
 } from "./filters/SubmissionsSortByFilter.js";
 import { useSelector } from "react-redux";
 import { selectCurrentLoggedUserProfileId } from "../authentication/store/selectors/CurrentLoggedUserSelectors.js";
+import { Spinner } from "../../ui/index.js";
 
 const isEmptyArray = (arr) => Array.isArray(arr) && arr.length === 0;
 

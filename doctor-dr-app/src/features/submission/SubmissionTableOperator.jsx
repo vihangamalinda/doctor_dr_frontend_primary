@@ -1,12 +1,13 @@
 import TableOperations from "../../ui/secondary-ui/TableOperations.jsx";
-import Filter from "../../ui/secondary-ui/Filter.jsx";
+// import Filter from "../../ui/secondary-ui/Filter.jsx";
 import {
   diseaseStageClientFilters,
   DISEASE_STAGE_FILTER,
 } from "./filters/SubmissionsByDiseaseStageFilter.js";
-import SortBy from "../../ui/secondary-ui/SortBy.jsx";
+// import SortBy from "../../ui/secondary-ui/SortBy.jsx";
 import { submissionSortByFilters } from "./filters/SubmissionsSortByFilter.js";
 import { SORT_BY_FILTER } from "./filters/SubmissionsSortByFilter.js";
+import { Filter, SortBy } from "../../ui/index.js";
 
 function SubmissionTableOperator() {
   return (

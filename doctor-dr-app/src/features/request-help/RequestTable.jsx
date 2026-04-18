@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import RequestCard from "./RequestCard";
-import Row from "../../ui/secondary-ui/Row";
-import Spinner from "../../ui/secondary-ui/Spinner.jsx";
+// import Row from "../../ui/secondary-ui/Row";
+// import Spinner from "../../ui/secondary-ui/Spinner.jsx";
 import { useRequestedHelpsByCreatedUserProfileId } from "./hooks/useRequestedHelpsByCreatedUserProfileId.js";
+import { Row, Spinner } from "../../ui/index.js";
+
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
 

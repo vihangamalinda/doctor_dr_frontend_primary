@@ -1,16 +1,25 @@
 import { useForm } from "react-hook-form";
-import Form from "../../ui/secondary-ui/Form";
-import FormRow from "../../ui/secondary-ui/FormRow";
-import Label from "../../ui/secondary-ui/Label";
-import Textarea from "../../ui/secondary-ui/TextArea";
-import Input from "../../ui/secondary-ui/Input";
+// import Form from "../../ui/secondary-ui/Form";
+// import FormRow from "../../ui/secondary-ui/FormRow";
+// import Label from "../../ui/secondary-ui/Label";
+// import Textarea from "../../ui/secondary-ui/TextArea";
+// import Input from "../../ui/secondary-ui/Input";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { createReportIssue } from "../../services/apis/apiReportIssue.js";
-import Button from "../../ui/secondary-ui/Button.jsx";
+// import Button from "../../ui/secondary-ui/Button.jsx";
 import { selectCurrentLoggedUserProfileId } from "../authentication/store/selectors/CurrentLoggedUserSelectors.js";
 import { useSelector } from "react-redux";
 import { useCreateReportIssue } from "./hooks/useCreateReportIssue.js";
+
+import {
+  Form,
+  FormRow,
+  Label,
+  TextArea,
+  Input,
+  Button,
+} from "../../ui/index.js";
 
 const createLocalDateTime = () => {
   const now = new Date();
@@ -59,7 +68,7 @@ function CreateIssue() {
         <Label htmlFor="description">
           Please explain the issue that you needed to repot.
         </Label>
-        <Textarea
+        <TextArea
           type="text"
           id="description"
           defaultValue=""

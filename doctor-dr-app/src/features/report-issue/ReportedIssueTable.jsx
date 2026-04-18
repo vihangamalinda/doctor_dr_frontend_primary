@@ -1,7 +1,8 @@
-import Row from "../../ui/secondary-ui/Row";
+// import Row from "../../ui/secondary-ui/Row";
 import ReportedIssueCard from "./ReportedIssueCard";
-import Spinner from "../../ui/secondary-ui/Spinner.jsx";
+// import Spinner from "../../ui/secondary-ui/Spinner.jsx";
 import { useReportedIssues } from "./hooks/useReportedIssues.js";
+import {Row,Spinner} from "../../ui/index.js";
 
 function ReportedIssueTable() {
   const { allReportedIssues, isAllReportedIssuesLoading, error } =

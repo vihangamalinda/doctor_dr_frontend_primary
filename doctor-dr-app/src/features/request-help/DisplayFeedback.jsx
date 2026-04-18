@@ -1,8 +1,14 @@
-import LabelGroupStyle from "../../ui/request-form-ui/LabelGroupStyle";
-import LabelTextArea from "../../ui/request-form-ui/LabelTextArea";
-import LabelPrimary from "../../ui/request-form-ui/LabelPrimary";
+// import LabelGroupStyle from "../../ui/request-form-ui/LabelGroupStyle";
+// import LabelTextArea from "../../ui/request-form-ui/LabelTextArea";
+// import LabelPrimary from "../../ui/request-form-ui/LabelPrimary";
 import styled from "styled-components";
-import Row from "../../ui/secondary-ui/Row";
+// import Row from "../../ui/secondary-ui/Row";
+import {
+  LabelGroupStyle,
+  LabelTextArea,
+  LabelPrimary,
+  Row,
+} from "../../ui/index.js";
 
 const SubLabel = styled.label`
   font-weight: 300;

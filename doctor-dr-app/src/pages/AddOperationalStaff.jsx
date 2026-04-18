@@ -1,7 +1,8 @@
 // this page is belongs to Admin of the system
-import Heading from "../ui/secondary-ui/Heading";
-import Row from "../ui/secondary-ui/Row";
+// import Heading from "../ui/secondary-ui/Heading";
+// import Row from "../ui/secondary-ui/Row";
 import CreateOperationalStaffUserProfile from "../features/user-profile/creationalForms/CreateOperationalStaffUserProfile";
+import { Heading, Row } from "../ui/index.js";
 
 function AddOperationalStaff() {
   return (
