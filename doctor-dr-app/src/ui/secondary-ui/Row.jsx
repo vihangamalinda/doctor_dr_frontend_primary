@@ -28,7 +28,15 @@ const Row = styled.div`
      ${(props) =>
     props.type === "horizontal-center" &&
     css`
-      justify-content: center;
+      justify-content:center;
+      align-items: center;
+      gap: 5px;
+    `}
+
+    ${(props) =>
+    props.type === "horizontal-space-around" &&
+    css`
+      justify-content: space-around;
       align-items: center;
       gap: 5px;
     `}
