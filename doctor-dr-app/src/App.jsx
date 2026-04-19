@@ -26,6 +26,7 @@ import {
   AddOperationalStaff,
   ReviewRequestedHelps,
   DetailRequestedHelp,
+  UpdateUserPassword,
 } from "./pages/index.js";
 import ProtectedRoute from "./ui/ProtectedRoute.jsx";
 
@@ -77,6 +78,7 @@ function App() {
             <Route path="report-issue" element={<ReportIssue />} />
             <Route path="settings" element={<Settings />} />
             <Route path="user" element={<User />} />
+            <Route path="user/update-password/:userProfileId" element={<UpdateUserPassword />} />
             <Route path="request-helper" element={<Request />} />
             <Route
               path="preview-reported-issues"
