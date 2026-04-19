@@ -1,5 +1,5 @@
 import { USER_CREDENTIALS_API_URLs } from "../apiConfigs";
-import { getData, createDataAndReturnResponse } from "../apiHelper";
+import { getData, createDataAndReturnResponse,createDataWithoutResponseBody } from "../apiHelper";
 
 const getAllUserNames = async () => {
   return await getData(
@@ -24,4 +24,15 @@ const getCurrentLoggedUser = async () => {
   );
 };
 
-export { getAllUserNames, createJwtTokenByUserLogin, getCurrentLoggedUser };
+const destoyJwtTokenByUserLogout = async () => {
+  return await createDataWithoutResponseBody(
+    USER_CREDENTIALS_API_URLs.USER_CREDENTIALS_PERFORM_LOGOUT,
+  );
+};
+
+export {
+  getAllUserNames,
+  createJwtTokenByUserLogin,
+  getCurrentLoggedUser,
+  destoyJwtTokenByUserLogout,
+};
