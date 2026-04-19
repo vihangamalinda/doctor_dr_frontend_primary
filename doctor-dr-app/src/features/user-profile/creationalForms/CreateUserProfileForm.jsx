@@ -4,7 +4,7 @@ import UserProfilePersonalInformationForm from "./UserProfilePersonalInformation
 import CustomFormRow from "../../../ui/secondary-ui/CustomFormRow";
 // import Form from "../../../ui/secondary-ui/Form";
 // import Button from "../../../ui/secondary-ui/Button";
-import {Form,Button} from "../../../ui/secondary-ui/index.js";
+import { Form, Button } from "../../../ui/secondary-ui/index.js";
 
 function CreateUserProfileForm({ children, onSubmit, onError, isCreating }) {
   const methods = useForm();

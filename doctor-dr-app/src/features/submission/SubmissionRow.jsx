@@ -1,7 +1,7 @@
 import styled from "styled-components";
 // import Button from "../../ui/secondary-ui/Button";
 import StyledTag from "../../ui/secondary-ui/StyledTag";
-import {Button} from "../../ui/index.js";
+import { Button } from "../../ui/index.js";
 
 const TableRow = styled.div`
   display: grid;

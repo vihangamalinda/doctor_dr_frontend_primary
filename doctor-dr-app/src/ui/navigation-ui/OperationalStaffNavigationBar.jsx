@@ -1,5 +1,6 @@
 function OperationalStafffNavigationBar() {
-  return (<nav>
+  return (
+    <nav>
       <StyledNavList>
         <li>
           <ToDashboard />
@@ -43,6 +44,7 @@ function OperationalStafffNavigationBar() {
           <ToReviewRequestedHelps />
         </li>
       </StyledNavList>
-    </nav>);
+    </nav>
+  );
 }
 export default OperationalStafffNavigationBar;

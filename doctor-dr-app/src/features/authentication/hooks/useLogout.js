@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 export function useLogout() {
   const navigate = useNavigate();
 
-  const {mutate:logout,isLoading:isLoggingOut} = useMutation({
+  const { mutate: logout, isLoading: isLoggingOut } = useMutation({
     mutationFn: () => {
       return destoyJwtTokenByUserLogout();
     },
@@ -17,6 +17,6 @@ export function useLogout() {
       console.log(err);
       toast.error("Logout failed. Please try again.");
     },
-  })
-return {logout,isLoggingOut};
-};
+  });
+  return { logout, isLoggingOut };
+}

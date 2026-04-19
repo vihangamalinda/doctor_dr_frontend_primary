@@ -3,7 +3,7 @@ import { useRequestedHelpsByStatusValue } from "./hooks/useRequestedHelpsByStatu
 import statusValueIdentifierMap from "./StatusValueIdentifier";
 import ReviewRequestedHelpsRow from "./ReviewRequestedHelpsRow";
 // import Spinner from "../../ui/secondary-ui/Spinner";
-import {Spinner} from "../../ui/index.js";
+import { Spinner } from "../../ui/index.js";
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);

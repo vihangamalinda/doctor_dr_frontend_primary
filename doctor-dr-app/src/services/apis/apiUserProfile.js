@@ -32,13 +32,13 @@ const deleteUserProfileById = async (id) => {
     USER_PROFILE_API_URLs.USER_PROFILE_PERFORM_DELETE_BY_ID(id),
   );
 };
-const updatePassword = async(dataObj)=>{
-  const data ={
-    obj:dataObj,
-    url:USER_PROFILE_API_URLs.USER_PROFILE_PERFORM_UPDATE_PASSWORD,
-  }
+const updatePassword = async (dataObj) => {
+  const data = {
+    obj: dataObj,
+    url: USER_PROFILE_API_URLs.USER_PROFILE_PERFORM_UPDATE_PASSWORD,
+  };
   return await createData(data);
-}
+};
 
 export {
   getAllUserProfile,

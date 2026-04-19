@@ -14,7 +14,6 @@ import { useMoveBack } from "../../hooks/useMoveBack.js";
 import { HiMiniArrowSmallLeft } from "react-icons/hi2";
 import { useUpdatePassword } from "../user-profile/hooks/useUpdatePassword.js";
 
-
 const FormStyle = styled.div`
   display: flex;
   flex-direction: column;
@@ -35,18 +34,17 @@ function UpdatePasswordForm() {
   const { errors } = formState;
   const { updatePassword, isUpdating } = useUpdatePassword();
 
- const onSubmit = (formData) => {
-//   console.log(formData);
-  const data ={
-    userProfileId:userProfileId,
-    newPassword: formData.password
-  }
-  updatePassword(data);
-};
-const onError = (formErrors) => {};
+  const onSubmit = (formData) => {
+    //   console.log(formData);
+    const data = {
+      userProfileId: userProfileId,
+      newPassword: formData.password,
+    };
+    updatePassword(data);
+  };
+  const onError = (formErrors) => {};
 
-
-//   const isUpdatingPassword = false;
+  //   const isUpdatingPassword = false;
 
   return (
     <Row type="vertical">

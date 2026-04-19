@@ -4,7 +4,7 @@ import { useUserProfileById } from "./hooks/useUserProfileById";
 import UserProfileInformation from "./UserProfileInformation";
 // import Spinner from "../../ui/secondary-ui/Spinner";
 import HospitalInformation from "../hospital/HospitalInformation";
-import {Spinner} from "../../ui/index.js";
+import { Spinner } from "../../ui/index.js";
 
 function DisplayCurrentUserProfileInfromation() {
   const currentLoggedInUserProfileId = useSelector(

@@ -1,6 +1,6 @@
 import ReportedIssueTable from "../features/report-issue/ReportedIssueTable";
 // import Heading from "../ui/secondary-ui/Heading";
-import {Heading} from "../ui/index.js";
+import { Heading } from "../ui/index.js";
 
 function PreviewReportedIssues() {
   return (

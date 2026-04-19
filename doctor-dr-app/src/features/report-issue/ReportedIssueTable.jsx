@@ -2,7 +2,7 @@
 import ReportedIssueCard from "./ReportedIssueCard";
 // import Spinner from "../../ui/secondary-ui/Spinner.jsx";
 import { useReportedIssues } from "./hooks/useReportedIssues.js";
-import {Row,Spinner} from "../../ui/index.js";
+import { Row, Spinner } from "../../ui/index.js";
 
 function ReportedIssueTable() {
   const { allReportedIssues, isAllReportedIssuesLoading, error } =

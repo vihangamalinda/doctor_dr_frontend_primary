@@ -1,8 +1,7 @@
 import { UpdatePasswordForm } from "../features/authentication/index.js";
 
 function UpdateUserPassword() {
-    return (<UpdatePasswordForm />);
-
+  return <UpdatePasswordForm />;
 }
 
 export default UpdateUserPassword;

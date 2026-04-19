@@ -108,19 +108,19 @@ const createDataAndReturnResponse = async ({ url, obj }) => {
   }
 };
 
-const createDataWithoutResponseBody = async(url) =>{
-  try{
+const createDataWithoutResponseBody = async (url) => {
+  try {
     const response = await fetch(url, {
       method: "POST",
       credentials: "include",
     });
     isAuthenticated(response);
     validateResponse(response);
-  }catch(error){
+  } catch (error) {
     console.log("error", error);
     throw new Error("Failed to create data. Please try again later.");
   }
-}
+};
 
 const isAuthenticated = (response) => {
   if (response.status === 401 || response.status === 403) {

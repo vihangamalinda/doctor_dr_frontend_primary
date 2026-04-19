@@ -4,13 +4,14 @@
 import UserProfileCard from "./UserProfileCard.jsx";
 import { useUserProfilesByUserRoleValue } from "./hooks/useUserProfilesByUserRoleValue.js";
 import { ROLE_CONSTANTS } from "../user-role/helper/index.js";
-import {Spinner,Row} from "../../ui/index.js";
+import { Spinner, Row } from "../../ui/index.js";
 
 function CommonUserProfileTable() {
   /**
    * TODO: need to retrive only common users not everyone
    */
-  const { userProfilesByUserRoleValue,isUserProfilesLoading } = useUserProfilesByUserRoleValue(ROLE_CONSTANTS.commonUser);
+  const { userProfilesByUserRoleValue, isUserProfilesLoading } =
+    useUserProfilesByUserRoleValue(ROLE_CONSTANTS.commonUser);
 
   if (isUserProfilesLoading) {
     return <Spinner />;

@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllUserProfilesByUserRoleValue } from "../../../services/apis/apiUserProfile.js";
 import { GET_USER_PROFILES_BY_USER_ROLE_VALUE } from "./queryKeys.js";
 
-
 export function useUserProfilesByUserRoleValue(userRoleValue) {
   const {
     data: userProfilesByUserRoleValue,

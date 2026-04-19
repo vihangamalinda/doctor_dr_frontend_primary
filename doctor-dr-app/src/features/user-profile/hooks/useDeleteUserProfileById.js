@@ -3,7 +3,6 @@ import { deleteUserProfileById as deleteUserProfileByIdApi } from "../../../serv
 import toast from "react-hot-toast";
 import { MAIN_KEY } from "./queryKeys.js";
 
-
 export function useDeleteUserProfileById() {
   const queryClient = useQueryClient();
   const { mutate: deleteUserProfileById, isLoading: isdeleting } = useMutation({

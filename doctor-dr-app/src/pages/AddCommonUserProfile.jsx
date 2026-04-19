@@ -2,7 +2,7 @@
 // import Heading from "../ui/secondary-ui/Heading";
 // import Row from "../ui/secondary-ui/Row";
 import CreateCommonUserProfile from "../features/user-profile/creationalForms/CreateCommonUserProfile";
-import {Heading,Row} from "../ui/index.js";
+import { Heading, Row } from "../ui/index.js";
 
 function AddCommonUserProfile() {
   return (

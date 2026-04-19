@@ -33,8 +33,7 @@ const PERFORM_ADD_FEED_BACK = (requestHelpId) =>
 const PERFOM_GET_BY_USER_ROLE_VALUE = (userRoleValue) =>
   `/user-role-value/${userRoleValue}`;
 const PERFORM_USER_CREDENTIALS_LOGOUT = `/logout`;
-const PERFORM_UPDATE_PASSWORD =()=>`/update-password`;
-
+const PERFORM_UPDATE_PASSWORD = () => `/update-password`;
 
 /*
     Report-issue APIs

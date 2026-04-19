@@ -4,7 +4,12 @@ import styled from "styled-components";
 // import LabelPrimary from "../../ui/request-form-ui/LabelPrimary";
 // import LabelGroupStyle from "../../ui/request-form-ui/LabelGroupStyle";
 // import Row from "../../ui/secondary-ui/Row";
-import {LabelTextArea,LabelPrimary,LabelGroupStyle,Row} from "../../ui/index.js";
+import {
+  LabelTextArea,
+  LabelPrimary,
+  LabelGroupStyle,
+  Row,
+} from "../../ui/index.js";
 
 const ReportedIssueCardStyle = styled.div`
   display: flex;

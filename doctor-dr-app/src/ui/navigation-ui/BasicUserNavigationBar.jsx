@@ -16,7 +16,8 @@ import {
 } from "./navigation-link-ui/index.js";
 
 function BasicUserNavigationBar() {
-  return (<nav>
+  return (
+    <nav>
       <StyledNavList>
         <li>
           <ToDashboard />
@@ -59,7 +60,8 @@ function BasicUserNavigationBar() {
           <ToReviewRequestedHelps />
         </li> */}
       </StyledNavList>
-    </nav>);
+    </nav>
+  );
 }
 
 export default BasicUserNavigationBar;

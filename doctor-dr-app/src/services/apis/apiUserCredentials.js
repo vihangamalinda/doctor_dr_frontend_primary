@@ -1,5 +1,9 @@
 import { USER_CREDENTIALS_API_URLs } from "../apiConfigs";
-import { getData, createDataAndReturnResponse,createDataWithoutResponseBody } from "../apiHelper";
+import {
+  getData,
+  createDataAndReturnResponse,
+  createDataWithoutResponseBody,
+} from "../apiHelper";
 
 const getAllUserNames = async () => {
   return await getData(
