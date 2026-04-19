@@ -14,6 +14,7 @@ import Settings from "./Settings";
 import Submissions from "./Submissions";
 import User from "./User";
 import DetailRequestedHelp from "./DetailRequestedHelp";
+import UpdateUserPassword from "./UpdateUserPassword";
 
 export {
   AddCommonUserProfile,
@@ -32,4 +33,5 @@ export {
   Submissions,
   User,
   DetailRequestedHelp,
+  UpdateUserPassword,
 };
