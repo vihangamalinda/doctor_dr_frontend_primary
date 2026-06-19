@@ -13,9 +13,9 @@ function MainNav() {
   if (authorityMap?.isAdmin) {
     return <AdminNavigationBar />;
   } else if (authorityMap?.isOperationalStaff) {
-    <OperationalStafffNavigationBar />;
+    return <OperationalStafffNavigationBar />;
   } else {
-    <BasicUserNavigationBar />;
+    return <BasicUserNavigationBar />;
   }
 }
 export default MainNav;
