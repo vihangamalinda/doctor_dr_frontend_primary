@@ -7,6 +7,10 @@ const GlobalStyles = createGlobalStyle`
 
  
   &, &.light-theme {
+
+  --color-orange-100: #ecd36c;
+  --color-orange-700: #eb6015;
+
   --color-brand-50: #eef2ff;
   --color-brand-100: #e0e7ff;
   --color-brand-200: #c7d2fe;
@@ -67,7 +71,8 @@ const GlobalStyles = createGlobalStyle`
   --color-brand-800: #3730a3;
   --color-brand-900: #312e81;
 
-
+  --colour-orange-100: #fffbeb;
+    --colour-orange-700: #ea580c;
     --color-grey-0: #18212f;
     --color-grey-50: #111827;
     --color-grey-100: #1f2937;
@@ -116,6 +121,9 @@ const GlobalStyles = createGlobalStyle`
     --color-brand-700: #6d28d9;
     --color-brand-800: #5b21b6;
     --color-brand-900: #4c1d95;
+
+    --colour-orange-100: #fffbeb;
+    --colour-orange-700: #ea580c;
 
     /* Grey */
     --color-grey-0: #ffffff;
