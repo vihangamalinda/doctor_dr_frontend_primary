@@ -1,8 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+// import Button from "../../ui/secondary-ui/Button";
+import StyledTag from "../../ui/secondary-ui/StyledTag";
+import { Button } from "../../ui/index.js";
 
 const TableRow = styled.div`
   display: grid;
-  grid-template-columns:  2fr 1.3fr 1.5fr 1.7fr 1.7fr;
+  grid-template-columns: 2fr 1.3fr 1.5fr 1.7fr 1.7fr;
   column-gap: 2.4rem;
   align-items: center;
   padding: 1.4rem 2.4rem;
@@ -12,51 +15,69 @@ const TableRow = styled.div`
   }
 `;
 
-const Img = styled.img`
-  display: block;
-  width: 6.4rem;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(1.5) translateX(-7px);
-`;
-
 const PatientReferenceId = styled.div`
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--color-grey-600);
-  font-family: 'Sono';
+  font-family: "Sono";
+  text-align: center;
 `;
 
 const HasDisease = styled.div`
-  font-family: 'Sono';
+  font-family: "Sono";
   font-weight: 600;
+  text-align: center;
 `;
 
 const DiseaseStageName = styled.div`
-  font-family: 'Sono';
+  font-family: "Sono";
   font-weight: 500;
   color: var(--color-green-700);
 `;
-const deleteBtId = (id)=> console.log("submission id deleting darft."+id);
-const diseaseFormatter =(hasDisease) => hasDisease?"Yes":"No";
 
-function SubmissionRow({submissionData}){
-    const {submissionId,patientReferenceId,createdDate,hasDisease,diseaseStage} = submissionData;
-    const {name} =diseaseStage;
-    const isDeleting =false;
-    const diseaseContain =diseaseFormatter(hasDisease);
-    console.log(patientReferenceId)
-    return (
-      <TableRow>
-        <PatientReferenceId>{patientReferenceId}</PatientReferenceId>
-        <div>{createdDate}</div>
-        <HasDisease>{diseaseContain}</HasDisease>
-        <DiseaseStageName>{name}</DiseaseStageName>
-        <button onClick={() => deleteBtId(submissionId)} disabled={isDeleting}>
-          Delete
-        </button>
-      </TableRow>
-    );
+const getDiseaseColourLabels = (diseaseLevel) => {
+  if (diseaseLevel === 1 || diseaseLevel === 2) {
+    return "orange";
+  } else if (diseaseLevel > 2) {
+    return "red";
+  } else {
+    return "green";
+  }
+};
+const deleteBtId = (id) => console.log("submission id deleting darft." + id);
+const diseaseFormatter = (hasDisease) => (hasDisease ? "Yes" : "No");
+
+function SubmissionRow({ submissionData }) {
+  const {
+    submissionId,
+    patientReferenceId,
+    createdDateTime,
+    hasDisease,
+    diseaseStage,
+  } = submissionData;
+  const { name, diseaseLevel } = diseaseStage;
+  const isDeleting = false;
+  const diseaseContain = diseaseFormatter(hasDisease);
+  console.log(patientReferenceId);
+
+  const diseaseColourLabel = getDiseaseColourLabels(diseaseLevel);
+  // console.log("diseaseColourLabel", diseaseColourLabel);
+  return (
+    <TableRow>
+      <PatientReferenceId>{patientReferenceId}</PatientReferenceId>
+      <div>{createdDateTime}</div>
+      <HasDisease>{diseaseContain}</HasDisease>
+      <StyledTag colourType={diseaseColourLabel}>
+        {name}
+      </StyledTag>
+      <Button
+        variation="danger"
+        onClick={() => deleteBtId(submissionId)}
+        disabled={isDeleting}
+      >
+        Delete
+      </Button>
+    </TableRow>
+  );
 }
 export default SubmissionRow;

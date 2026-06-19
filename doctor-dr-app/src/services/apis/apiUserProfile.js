@@ -11,6 +11,14 @@ const getUserProfileById = async (id) => {
   );
 };
 
+const getAllUserProfilesByUserRoleValue = async (userRoleValue) => {
+  return await getData(
+    USER_PROFILE_API_URLs.USER_PROFILE_PERFORM_GET_ALL_BY_USER_ROLE_VALUE(
+      userRoleValue,
+    ),
+  );
+};
+
 const createUserProfile = async (userProfileObj) => {
   const data = {
     obj: userProfileObj,
@@ -24,10 +32,19 @@ const deleteUserProfileById = async (id) => {
     USER_PROFILE_API_URLs.USER_PROFILE_PERFORM_DELETE_BY_ID(id),
   );
 };
+const updatePassword = async (dataObj) => {
+  const data = {
+    obj: dataObj,
+    url: USER_PROFILE_API_URLs.USER_PROFILE_PERFORM_UPDATE_PASSWORD,
+  };
+  return await createData(data);
+};
 
 export {
   getAllUserProfile,
   getUserProfileById,
   createUserProfile,
   deleteUserProfileById,
+  getAllUserProfilesByUserRoleValue,
+  updatePassword,
 };

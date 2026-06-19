@@ -1,6 +1,9 @@
-import styled from 'styled-components';
-import RequestCard from './RequestCard';
-import Row from '../../ui/secondary-ui/Row';
+import styled from "styled-components";
+import RequestCard from "./RequestCard";
+// import Row from "../../ui/secondary-ui/Row";
+// import Spinner from "../../ui/secondary-ui/Spinner.jsx";
+import { useRequestedHelpsByCreatedUserProfileId } from "./hooks/useRequestedHelpsByCreatedUserProfileId.js";
+import { Row, Spinner } from "../../ui/index.js";
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -13,7 +16,7 @@ const Table = styled.div`
 
 const TableHeader = styled.header`
   display: grid;
-  grid-template-columns:   2fr 1.3fr 1.5fr 1.7fr 1.7fr;
+  grid-template-columns: 2fr 1.3fr 1.5fr 1.7fr 1.7fr;
   column-gap: 2.4rem;
   align-items: center;
 
@@ -26,36 +29,21 @@ const TableHeader = styled.header`
   padding: 1.6rem 2.4rem;
 `;
 
-function createRequest(id,title,description,feedback,contactInfor){
-    return {
-        id,
-        title,
-        description,
-        feedback,
-        contactInfor
-    }
-}
-const dummyContactInfor = [
-  { name: "adsd", contactNumber: "help@gmail.com" },
-  { name: "adsdhfs", contactNumber: "help1@gmail.com" },
-  { name: "gheadsd", contactNumber: "help2@gmail.com" },
-  { name: "bnmadsd", contactNumber: "help3@gmail.com" },
-];
-const lengthyMessage = `agasddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxcxcxcffffffffffffffaaaaaaaaaaaasdsadww eewdads  asdasdasdasdasdasdasddadsdavxxc
- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-`
+const createdUserProfileId = 6;
+function RequestTable() {
+  const { requestedHelpsByCreatedProfileId, isRequestedHelpsLoading, error } =
+    useRequestedHelpsByCreatedUserProfileId(createdUserProfileId);
 
-const dummyRequest = [
-    createRequest(2,"title 1", lengthyMessage ,lengthyMessage,dummyContactInfor[0]),
-    createRequest(5,"title 1", lengthyMessage ,lengthyMessage,dummyContactInfor[1]),
-    createRequest(8,"title 1", lengthyMessage ,lengthyMessage,dummyContactInfor[2]),
-    createRequest(11,"title 1", lengthyMessage ,"ad3413",dummyContactInfor[3]),
-]
-function RequestTable(){
-    return (
-        <Row type="vertical">
-        {dummyRequest.map(request=> <RequestCard request={request} key={request.id}/>)}
-        </Row>
-    )
+  if (isRequestedHelpsLoading) {
+    return <Spinner />;
+  }
+
+  return (
+    <Row type="vertical">
+      {requestedHelpsByCreatedProfileId.map((request) => (
+        <RequestCard request={request} key={request.id} />
+      ))}
+    </Row>
+  );
 }
 export default RequestTable;

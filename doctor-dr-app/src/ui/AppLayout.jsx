@@ -1,10 +1,9 @@
-import { Outlet } from 'react-router-dom';
-import Dashboard from '../pages/Dashboard';
-import Submissions from '../pages/Submissions';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import { styled } from 'styled-components';
+import { Outlet } from "react-router-dom";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+import { styled } from "styled-components";
 // import ImageInput from "../features/submission/PerformSubmission";
+import { LogoutMiniButton } from "../features/authentication/index.js";
 
 const StyledAppLayout = styled.div`
   display: grid;
@@ -29,7 +28,9 @@ const Container = styled.div`
 function AppLayout() {
   return (
     <StyledAppLayout>
-      <Header />
+      <Header>
+        <LogoutMiniButton />
+      </Header>
       <Sidebar />
       <Main>
         <Container>

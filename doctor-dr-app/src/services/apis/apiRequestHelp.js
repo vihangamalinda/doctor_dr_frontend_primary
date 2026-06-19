@@ -23,10 +23,34 @@ const deleteRequestHelpById = async (id) => {
     REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_DELETE_BY_ID(id),
   );
 };
-const getRequestHelpByUserProfileId = async (id) => {
+
+// const getRequestHelpByUserProfileId = async (id) => {
+//   return await getData(
+//     REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_USER_PROFILE_BY_ID(id),
+//   );
+
+// };
+
+const getRequestedHelpsByCreatedUserProfileId = async (id) => {
   return await getData(
-    REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_USER_PROFILE_BY_ID(id),
+    REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_CREATED_BY_USER_PROFILE_ID(id),
   );
+};
+
+const getRequestedHelpsByStatusValue = async (statusValue) => {
+  return await getData(
+    REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_GET_BY_STATUS_VALUE(statusValue),
+  );
+};
+
+const addFeedbackByRequestedHelpId = async ({ id, feedbackInfor }) => {
+  console.log(id, feedbackInfor);
+  debugger;
+  const data = {
+    url: REQUEST_HELP_API_URLs.REQUEST_HELP_PERFORM_ADD_FEEDBACK(id),
+    obj: feedbackInfor,
+  };
+  return await updateData(data);
 };
 
 export {
@@ -34,5 +58,7 @@ export {
   getRequestHelpById,
   createRequestHelp,
   deleteRequestHelpById,
-  getRequestHelpByUserProfileId,
+  getRequestedHelpsByCreatedUserProfileId,
+  getRequestedHelpsByStatusValue,
+  addFeedbackByRequestedHelpId,
 };
