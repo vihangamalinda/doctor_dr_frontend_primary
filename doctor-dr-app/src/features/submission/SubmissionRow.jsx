@@ -59,12 +59,15 @@ function SubmissionRow({ submissionData }) {
   const isDeleting = false;
   const diseaseContain = diseaseFormatter(hasDisease);
   console.log(patientReferenceId);
+
+  const diseaseColourLabel = getDiseaseColourLabels(diseaseLevel);
+  // console.log("diseaseColourLabel", diseaseColourLabel);
   return (
     <TableRow>
       <PatientReferenceId>{patientReferenceId}</PatientReferenceId>
       <div>{createdDateTime}</div>
       <HasDisease>{diseaseContain}</HasDisease>
-      <StyledTag colourType={getDiseaseColourLabels(diseaseLevel)}>
+      <StyledTag colourType={diseaseColourLabel}>
         {name}
       </StyledTag>
       <Button
