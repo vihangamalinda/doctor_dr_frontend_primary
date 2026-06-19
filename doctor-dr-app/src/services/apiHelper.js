@@ -123,10 +123,10 @@ const createDataWithoutResponseBody = async (url) => {
 };
 
 const isAuthenticated = (response) => {
-  if (response.status === 401 || response.status === 403) {
-    window.location.href = "/login";
-    return;
-  }
+  // if (response.status === 401 || response.status === 403) {
+  //   window.location.href = "/login";
+  //   return;
+  // }
 };
 
 export {
