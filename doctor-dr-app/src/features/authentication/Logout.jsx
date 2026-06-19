@@ -5,7 +5,7 @@ function Logout() {
   return (
     <Row type="horizontal-space-around">
       <Row type="horizontal-center">
-        <Heading as="h3">Colour Selections</Heading>
+        <Heading as="h3">Logout</Heading>
       </Row>
       <Row type="horizontal-end">
         <LogoutMiniButton />
