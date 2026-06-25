@@ -40,7 +40,9 @@
     "globals": "^16.5.0",
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1",
+    "jsdom": "^29.1.1",
     "prettier": "^3.8.1",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "vitest": "^4.1.9"
   }
 }
