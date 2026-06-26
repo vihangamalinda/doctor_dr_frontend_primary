@@ -38,8 +38,8 @@ const mockUserProfile = {
     name: "Asiri Central Hospital",
   },
 };
-
-const { id, firstName, lastName, hospital } = mockUserProfile;
+const setup = () => render(<DisplayCurrentUserProfileInformation />);
+const { id, firstName, hospital } = mockUserProfile;
 
 const mockHookReturn = ({
   userProfile = mockUserProfile,
@@ -63,7 +63,7 @@ describe("DisplayCurrentUserProfileInformation", () => {
       // arrange
       mockHookReturn({ isLoading: true });
       // action
-      render(<DisplayCurrentUserProfileInformation />);
+      setup();
       // assertion
       expect(screen.getByTestId("spinner")).toBeInTheDocument();
     });
@@ -72,7 +72,7 @@ describe("DisplayCurrentUserProfileInformation", () => {
       // arrange
       mockHookReturn({ isLoading: true });
       // action
-      render(<DisplayCurrentUserProfileInformation />);
+      setup();
       // assertion
       expect(
         screen.queryByTestId("user-profile-information"),
@@ -89,7 +89,7 @@ describe("DisplayCurrentUserProfileInformation", () => {
     });
     it("should render user profile information when component is not at loading state ", () => {
       // action
-      render(<DisplayCurrentUserProfileInformation />);
+      setup();
 
       // assertion
       expect(
@@ -100,7 +100,7 @@ describe("DisplayCurrentUserProfileInformation", () => {
 
     it("should render hospital information", () => {
       // action
-      render(<DisplayCurrentUserProfileInformation />);
+      setup();
 
       // assertion
       expect(screen.getByTestId("hospital-information")).toBeInTheDocument();
@@ -109,7 +109,7 @@ describe("DisplayCurrentUserProfileInformation", () => {
 
     it("should render the hospital heading", () => {
       // action
-      render(<DisplayCurrentUserProfileInformation />);
+      setup();
 
       // assertion
       expect(screen.getByText(/hospital information/i)).toBeInTheDocument();
@@ -117,7 +117,7 @@ describe("DisplayCurrentUserProfileInformation", () => {
 
     it("should not render spinner when component at loaded state", () => {
       // action
-      render(<DisplayCurrentUserProfileInformation />);
+      setup();
       // assertion
       expect(screen.queryByTestId("spinner")).not.toBeInTheDocument();
     });
@@ -127,7 +127,7 @@ describe("DisplayCurrentUserProfileInformation", () => {
     it("should call useUserProfileId with the currently logged in user id", () => {
       mockHookReturn();
 
-      render(<DisplayCurrentUserProfileInformation />);
+      setup();
 
       expect(useSelector).toHaveBeenCalledWith(
         selectCurrentLoggedUserProfileId,
@@ -136,7 +136,7 @@ describe("DisplayCurrentUserProfileInformation", () => {
     it("should invoke useUserProfileById exactly once", () => {
       mockHookReturn();
 
-      render(<DisplayCurrentUserProfileInformation />);
+      setup();
 
       expect(useUserProfileById).toHaveBeenCalledTimes(1);
       expect(useUserProfileById).toHaveBeenCalledWith(id);

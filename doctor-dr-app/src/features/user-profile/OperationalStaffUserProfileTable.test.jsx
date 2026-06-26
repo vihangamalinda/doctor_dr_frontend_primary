@@ -51,6 +51,8 @@ const mockHookReturn = ({ userProfiles = [], loading = false } = {}) => {
   });
 };
 
+const setup = () => render(<OperationalStaffUserProfileTable />);
+
 describe("OperationalStaffUserProfileTable", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -61,7 +63,7 @@ describe("OperationalStaffUserProfileTable", () => {
       //arrange
       mockHookReturn({ loading: true });
       //act
-      render(<OperationalStaffUserProfileTable />);
+      setup();
 
       //assertions
       expect(screen.getByTestId("spinner")).toBeInTheDocument();
@@ -71,7 +73,7 @@ describe("OperationalStaffUserProfileTable", () => {
       //arrange
       mockHookReturn({ loading: true });
       //act
-      render(<OperationalStaffUserProfileTable />);
+      setup();
 
       //assertions
       expect(screen.queryByTestId("row")).not.toBeInTheDocument();
@@ -81,7 +83,7 @@ describe("OperationalStaffUserProfileTable", () => {
       //arrange
       mockHookReturn({ userProfiles: mockUserProfiles, loading: true });
       //act
-      render(<OperationalStaffUserProfileTable />);
+      setup();
 
       //assertions
       expect(screen.queryByTestId("user-profile-card")).not.toBeInTheDocument();
@@ -93,7 +95,7 @@ describe("OperationalStaffUserProfileTable", () => {
       //arrange
       mockHookReturn({ userProfiles: mockUserProfiles, loading: false });
       //act
-      render(<OperationalStaffUserProfileTable />);
+      setup();
 
       //assertions
       expect(screen.getByTestId("row")).toHaveAttribute(
@@ -110,7 +112,7 @@ describe("OperationalStaffUserProfileTable", () => {
       });
       //act
 
-      render(<OperationalStaffUserProfileTable />);
+      setup();
 
       //assertions
       const userCards = screen.getAllByTestId("user-profile-card");
@@ -126,7 +128,7 @@ describe("OperationalStaffUserProfileTable", () => {
       //arrange
       mockHookReturn({ userProfiles: mockUserProfiles, loading: false });
       //act
-      render(<OperationalStaffUserProfileTable />);
+      setup();
 
       //assertions
       expect(screen.queryByTestId("spinner")).not.toBeInTheDocument();
@@ -140,7 +142,7 @@ describe("OperationalStaffUserProfileTable", () => {
           loading: false,
         });
         //act
-        render(<OperationalStaffUserProfileTable />);
+        setup();
 
         //assertions
         expect(screen.getByTestId("row")).toBeInTheDocument();
@@ -155,7 +157,7 @@ describe("OperationalStaffUserProfileTable", () => {
           //arrange
           mockHookReturn();
           //act
-          render(<OperationalStaffUserProfileTable />);
+          setup();
 
           //assertions
           expect(useUserProfilesByUserRoleValue).toHaveBeenCalledWith(
@@ -167,7 +169,7 @@ describe("OperationalStaffUserProfileTable", () => {
           //arrange
           mockHookReturn();
           //act
-          render(<OperationalStaffUserProfileTable />);
+          setup();
 
           //assertions
           expect(useUserProfilesByUserRoleValue).toHaveBeenCalledTimes(1);
@@ -187,7 +189,7 @@ describe("OperationalStaffUserProfileTable", () => {
             loading: false,
           });
 
-          render(<OperationalStaffUserProfileTable />);
+          setup();
 
           //assertions
           expect(screen.getAllByTestId("user-profile-card")).toHaveLength(1);
@@ -205,7 +207,7 @@ describe("OperationalStaffUserProfileTable", () => {
             loading: true,
           });
           //act
-          render(<OperationalStaffUserProfileTable />);
+          setup();
 
           //assertions
           expect(screen.getByTestId("spinner")).toBeInTheDocument();

@@ -38,13 +38,15 @@ const mockUserProfile = {
   },
 };
 
+const setup =(userProfile)=> render(<OperationalStaffProfileCard userProfile={userProfile}/>)
+
 const { firstName, lastName, createdDateTime, modifiedDateTime, hospital } =
   mockUserProfile;
 
 describe("OperationalStaffProfileCard", () => {
   it("should render user's full name by combining user's firstName and lastName", () => {
     // arrange & action
-    render(<OperationalStaffProfileCard userProfile={mockUserProfile} />);
+    setup(mockUserProfile);
 
     // assertion
     const expectedFullName = `${firstName} ${lastName}`;
@@ -53,7 +55,7 @@ describe("OperationalStaffProfileCard", () => {
 
   it("should render user profile created and modified dates", () => {
     // arrange & action
-    render(<OperationalStaffProfileCard userProfile={mockUserProfile} />);
+    setup(mockUserProfile);
 
     // assertion
     expect(screen.getByText(createdDateTime)).toBeInTheDocument();
@@ -62,7 +64,7 @@ describe("OperationalStaffProfileCard", () => {
 
   it("should render user profile's responsible hospital information", () => {
     // arrange & action
-    render(<OperationalStaffProfileCard userProfile={mockUserProfile} />);
+    setup(mockUserProfile);
 
     // assertion
     expect(screen.getByText(hospital.name)).toBeInTheDocument();
@@ -71,19 +73,19 @@ describe("OperationalStaffProfileCard", () => {
 
   it("should render the delete button", () => {
     //
-    render(<OperationalStaffProfileCard userProfile={mockUserProfile} />);
+    setup(mockUserProfile);
 
     expect(screen.getByRole("button", { name: /delete/i })).toBeInTheDocument();
   });
 
   it("should render four Row component in the dom", () => {
-    render(<OperationalStaffProfileCard userProfile={mockUserProfile} />);
+    setup(mockUserProfile);
 
     expect(screen.getAllByTestId("row")).toHaveLength(5);
   });
 
   it("should pass the correct Row types", () => {
-    render(<OperationalStaffProfileCard userProfile={mockUserProfile} />);
+    setup(mockUserProfile);
 
     const rows = screen.getAllByTestId("row");
 
@@ -111,7 +113,7 @@ describe("OperationalStaffProfileCard", () => {
   });
 
   it("should passes the correct props to the delete button", () => {
-    render(<OperationalStaffProfileCard userProfile={mockUserProfile} />);
+    setup(mockUserProfile);
 
     const button = screen.getByTestId("button");
 
@@ -126,7 +128,7 @@ describe("OperationalStaffProfileCard", () => {
   });
 
   it("should render two LabelGroupStyle components", () => {
-    render(<OperationalStaffProfileCard userProfile={mockUserProfile} />);
+    setup(mockUserProfile);
 
     expect(screen.getAllByTestId("label-group")).toHaveLength(2);
   });
