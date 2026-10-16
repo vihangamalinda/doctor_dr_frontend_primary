@@ -6,7 +6,7 @@ import UserProfileInformation from "./UserProfileInformation";
 import HospitalInformation from "../hospital/HospitalInformation";
 import { Spinner } from "../../ui/index.js";
 
-function DisplayCurrentUserProfileInfromation() {
+function DisplayCurrentUserProfileInformation() {
   const currentLoggedInUserProfileId = useSelector(
     selectCurrentLoggedUserProfileId,
   );
@@ -24,4 +24,4 @@ function DisplayCurrentUserProfileInfromation() {
     </>
   );
 }
-export default DisplayCurrentUserProfileInfromation;
+export default DisplayCurrentUserProfileInformation;
