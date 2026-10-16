@@ -3,7 +3,7 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import { styled } from "styled-components";
 // import ImageInput from "../features/submission/PerformSubmission";
-import { LogoutMiniButton } from "../features/authentication/index.js";
+import { LogoutMiniButton,CustomHeader } from "../features/authentication/index.js";
 
 const StyledAppLayout = styled.div`
   display: grid;
@@ -29,7 +29,7 @@ function AppLayout() {
   return (
     <StyledAppLayout>
       <Header>
-        <LogoutMiniButton />
+        <CustomHeader />
       </Header>
       <Sidebar />
       <Main>
