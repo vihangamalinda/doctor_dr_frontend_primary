@@ -9,4 +9,17 @@ const getUserAuthorityMap = (authroity) => {
   };
 };
 
-export { getUserAuthorityMap };
+const readableNameForAuthority = (authority) => {
+  switch (authority) {
+    case "ADMIN":
+      return "Administrator";
+    case "OPERATIONAL_STAFF":
+      return "Operational Staff";
+    case "COMMON_USER":
+      return "Common User";
+    default:
+      return "";
+  }
+};
+
+export { getUserAuthorityMap, readableNameForAuthority };
