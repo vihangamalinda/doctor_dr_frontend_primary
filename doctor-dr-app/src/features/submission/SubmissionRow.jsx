@@ -47,7 +47,23 @@ const getDiseaseColourLabels = (diseaseLevel) => {
 const deleteBtId = (id) => console.log("submission id deleting darft." + id);
 const diseaseFormatter = (hasDisease) => (hasDisease ? "Yes" : "No");
 
+const isValidData = (data) => {
+  if(!data) return false;
+
+  let isValid = true;
+
+  if (!data.submissionId || !data.patientReferenceId || !data.createdDateTime || !data.hasDisease || !data.diseaseStage) {
+    isValid = false;
+  }
+  return isValid;
+}
+
 function SubmissionRow({ submissionData }) {
+  const isValid = isValidData(submissionData);
+  if (!isValid) {
+    return <></>
+  }
+  
   const {
     submissionId,
     patientReferenceId,
