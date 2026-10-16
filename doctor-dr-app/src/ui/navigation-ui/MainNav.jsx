@@ -4,7 +4,6 @@ import { selectCurrentLoggedUserProfileAuthorities } from "../../features/authen
 import { getUserAuthorityMap } from "../../features/authentication/AuthorityHelper.js";
 import OperationalStafffNavigationBar from "./OperationalStaffNavigationBar.jsx";
 import BasicUserNavigationBar from "./BasicUserNavigationBar.jsx";
-
 function MainNav() {
   const authorities = useSelector(selectCurrentLoggedUserProfileAuthorities);
   console.log("authorities", authorities);
